@@ -1,12 +1,80 @@
-﻿@model Game
+﻿
+@using PCGameRate.ViewModels.Game
+@model CreateGameViewModel
 
-<form>
-    <div class="form-group">
-        <label for="formGroupExampleInput">Example label</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-    </div>
-    <div class="form-group">
-        <label for="formGroupExampleInput2">Another label</label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
-    </div>
-</form>
+<div class="navbar-container">
+</div>
+<div class="main-container">
+    <section class="space-sm">
+        <div class="container">
+            <div class="row mb-5">
+                <!--end of col-->
+            </div>
+            <!--end of row-->
+            <div class="row flex-md-row card card-md">
+                <div class="card-body">
+                    <div class="text-center mb-5">
+                        <h1 class="h2 mb-2">Create meal</h1>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-6 col-lg-5">
+                            <form method="post" asp-action="Create">
+                                <div class="form-row form-group">
+                                    <div class="col">
+                                    </div>
+                                    <div class="col">
+                                        <input asp-for="Title" class="form-control form-control-lg" placeholder="Назва" />
+                                        <span asp-validation-for="Title" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-row form-group">
+                                    <div class="col">
+                                        <input asp-for="Description" class="form-control form-control-lg" placeholder="Опис" />
+                                        <span asp-validation-for="Description" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-row form-group">
+                                    <div class="col">
+                                        <input asp-for="ReleaseDate" class="form-control form-control-lg" placeholder="Дата виходу" />
+                                        <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-row form-group">
+                                    <div class="col">
+                                        <input asp-for="Image" class="form-control form-control-lg" placeholder="Картинка" />
+                                        <span asp-validation-for="Image" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-row form-group">
+                                    <div class="col">
+                                        <input asp-for="Genre.GameGenre" class="form-control form-control-lg" placeholder="Жанр" />
+                                        <span asp-validation-for="Genre.GameGenre" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-row form-group">
+                                    <div class="col">
+                                        <input asp-for="Developer.DeveloperName" class="form-control form-control-lg" placeholder="Розробник" />
+                                        <span asp-validation-for="Developer.DeveloperName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-row form-group">
+                                    <div class="col">
+                                        <input asp-for="Developer.WebSite" class="form-control form-control-lg" placeholder="Сайт розробника" />
+                                        <span asp-validation-for="Developer.WebSite" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-row form-group">
+                                    <div class="col">
+                                        <button class="btn btn-primary" type="submit">Add Game</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end of container-->
+    </section>
+    <!--end of section-->
+</div>

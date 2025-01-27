@@ -1,0 +1,44 @@
+﻿@using PCGameRate.ViewModels.Game
+@model EditGameViewModel
+
+
+<form method="post" asp-action="Edit" enctype="multipart/form-data">
+    <input type="hidden" value="GanreId" id="GenreId" />
+    <input type="hidden" value="DeveloperId" id="DeveloperId" />
+    <div class="form-group">
+        <label asp-for="Title">Title</label>
+        <input asp-for="Title" class="form-control" placeholder="Назва">
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description">Description</label>
+        <input asp-for="Description" class="form-control" placeholder="Опис">
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Image">Картинка</label>
+        <input asp-for="Image" class="form-control" placeholder="Картинка">
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ReleaseDate">Дата виходу</label>
+        <input asp-for="ReleaseDate" class="form-control" placeholder="Дата виходу">
+        <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Genre.GameGenre">Жанр</label>
+        <input asp-for="Genre.GameGenre" class="form-control" placeholder="Жанр">
+        <span asp-validation-for="Genre.GameGenre" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Developer.DeveloperName">Розробник</label>
+        <input asp-for="Developer.DeveloperName" class="form-control" placeholder="Розробник">
+        <span asp-validation-for="Developer.DeveloperName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Developer.WebSite">Сайт розробника</label>
+        <input asp-for="Developer.WebSite" class="form-control" placeholder="Сайт розробника">
+        <span asp-validation-for="Developer.WebSite" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
