@@ -11,7 +11,7 @@ namespace PCGameRate.Models
         public int? GameId { get; set; }
         public Game? Game {  get; set; }
         [ForeignKey("User")]
-        public string? UserId { get; set; }
+        public string? Id { get; set; }
         public User? User { get; set; }
         public int? RatingValue { get; set; }
         public DateTime? RatingDate { get; set; } = DateTime.Now;

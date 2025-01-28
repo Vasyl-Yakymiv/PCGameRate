@@ -1,18 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using PCGameRate.Data;
 using PCGameRate.Interfaces;
 using PCGameRate.Models;
 using PCGameRate.ViewModels.Game;
 using System;
 using System.Net;
+using System.Security.Claims;
 
 namespace PCGameRate.Controllers
 {
     public class GameController : Controller
     {
         IGameRepository _gameRepo;
-        public GameController(IGameRepository gameRepo)
+        ApplicationDbContext _context;
+        public GameController(IGameRepository gameRepo, ApplicationDbContext context)
         {
             _gameRepo = gameRepo;
+            _context = context;
         }
         [HttpGet]
         public async Task<IActionResult> Index()
@@ -123,6 +128,16 @@ namespace PCGameRate.Controllers
         public async Task<IActionResult> Detail(int id)
         {
             var game = await _gameRepo.GetByIdAsync(id);
+
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            // Пошук рейтингу для поточного користувача та конкретної гри
+            var userRating = await _context.Ratings
+                .Where(r => r.GameId == id && r.Id == userId)
+                .Select(r => r.RatingValue)
+                .FirstOrDefaultAsync();
+
+            // Передаємо рейтинг користувача у ViewBag
+            ViewBag.UserRating = userRating;
 
             return game == null ? NotFound() : View(game);
         }

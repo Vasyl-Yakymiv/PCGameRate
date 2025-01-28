@@ -1,11 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace PCGameRate.Models
 {
-    public class User
+    public class User : IdentityUser 
     {
-        [Key]
-        public string UserId { get; set; }
-        public string UserName { get; set; } 
+   
+        public string? ProfileImageUrl { get; set; }
+        public ICollection<Review> Reviews { get; set; }
+
     }
 }

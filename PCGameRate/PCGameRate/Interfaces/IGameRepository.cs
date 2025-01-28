@@ -12,5 +12,6 @@ namespace PCGameRate.Interfaces
         bool Update(Game game);
         bool Save();
         bool Delete(Game game);
+
     }
 }

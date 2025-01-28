@@ -2,26 +2,41 @@
 
 <div class="container mt-5">
     <div class="row">
-        <!-- Ліва частина: головна картинка -->
+      
         <div class="col-md-6">
             <img src="@Model.Image" class="img-fluid rounded shadow" alt="Game Image" />
         </div>
 
-        <!-- Права частина: інформація про гру -->
+       
         <div class="col-md-6">
             <h1>@Model.Title</h1>
             <p class="text-muted"></p>
             <p>@Model.Description</p>
-
-            <!-- Оцінка -->
             <div class="d-flex align-items-center">
                 <i class="fas fa-gamepad text-warning me-2" style="font-size: 24px;"></i>
                 <span style="font-size: 20px;"> @Model.RatingAverage / 10</span>
             </div>
+           @if (User.Identity.IsAuthenticated)
+           {  
+            <div>
+                <h3>
+                    Ваш рейтинг: @if (ViewBag.UserRating != null)
+                    {
+                        <span>@ViewBag.UserRating</span>
+                    }
+                    else
+                    {
+                        <span>Не оцінено</span>
+                    }
+                </h3>
+                <a asp-action="RateGame" asp-controller="Rating" asp-route-gameId="@Model.GameId" class="btn btn-success">
+                    Оцінити гру
+                </a>
+                </div>
+            }
         </div>
     </div>
 
-    <!-- Слайдер з фото -->
     <div class="mt-5">
         <h3>Gallery</h3>
         <div id="game-gallery" class="carousel slide" data-bs-ride="carousel">

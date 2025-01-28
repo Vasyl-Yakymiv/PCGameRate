@@ -1,0 +1,52 @@
+﻿@model Game
+
+@{
+    ViewData["Title"] = "Оцінити гру";
+    var existingRating = ViewBag.ExistingRating as int?;
+}
+
+<div class="container">
+    <h1>Оцінка гри: @Model.Title</h1>
+
+    <div>
+        <p>
+            Ваша поточна оцінка: @if (existingRating.HasValue)
+            {
+                <strong>@existingRating</strong>
+            }
+            else
+            {
+                <em>Ще не оцінено</em>
+            }
+        </p>
+    </div>
+
+    <form asp-action="RateGame" asp-controller="Rating" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="gameId" value="@Model.GameId" />
+
+        <div class="rating-buttons">
+            @for (int i = 1; i <= 10; i++)
+            {
+                <button type="submit" name="ratingValue" value="@i" class="btn btn-primary mx-1">
+                    @i
+                </button>
+            }
+        </div>
+    </form>
+</div>
+
+<style>
+    .rating-buttons {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+</style>
