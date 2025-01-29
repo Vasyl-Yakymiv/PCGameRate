@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PCGameRate.Data;
 
@@ -11,9 +12,11 @@ using PCGameRate.Data;
 namespace PCGameRate.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250129121025_UpdateReviewModel")]
+    partial class UpdateReviewModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -274,9 +277,6 @@ namespace PCGameRate.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewId"));
 
-                    b.Property<DateTime?>("DatePosted")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("GameId")
                         .HasColumnType("int");
 
@@ -452,7 +452,7 @@ namespace PCGameRate.Migrations
             modelBuilder.Entity("PCGameRate.Models.Review", b =>
                 {
                     b.HasOne("PCGameRate.Models.Game", "Game")
-                        .WithMany("Reviews")
+                        .WithMany()
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -464,11 +464,6 @@ namespace PCGameRate.Migrations
                     b.Navigation("Game");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("PCGameRate.Models.Game", b =>
-                {
-                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("PCGameRate.Models.User", b =>

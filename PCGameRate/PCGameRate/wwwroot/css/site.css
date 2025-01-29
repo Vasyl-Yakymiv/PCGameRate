@@ -1,26 +1,21 @@
 html {
   font-size: 14px;
 }
-
 @media (min-width: 768px) {
   html {
     font-size: 16px;
   }
 }
-
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
-
 html {
   position: relative;
   min-height: 100%;
 }
-
 body {
   margin-bottom: 60px;
 }
-
 .card-img-top {
     width: 100%; 
     height: 450px; 
@@ -30,8 +25,71 @@ img {
     max-height: 400px;
     object-fit: cover;
 }
-
 .carousel-item img {
     max-height: 300px;
     object-fit: contain;
+}
+.title {
+    width: 22ch; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+.review {
+    background-color: #f9f9f9; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin: 20px 0; 
+    padding: 15px; 
+    font-family: 'Arial', sans-serif;
+}
+.review-header {
+    font-size: 1.1em; 
+    color: #333; 
+    margin-bottom: 10px; 
+}
+.review-text {
+    font-size: 1em; 
+    color: #555; 
+    line-height: 1.6; 
+}
+.review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.review-item {
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.game-info {
+    flex: 1;
+    margin-right: 20px;
+}
+.game-image {
+    width: 100%;
+    height: auto;
+    max-width: 150px; 
+    border-radius: 5px;
+}
+.review-content {
+    flex: 2;
+}
+.date-posted {
+    font-size: 0.9em;
+    color: #888;
+}
+.btn {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.btn:hover {
+        background-color: #0056b3;
 }

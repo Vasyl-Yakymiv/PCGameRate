@@ -45,6 +45,11 @@ namespace PCGameRate.Repository
                 .FirstOrDefaultAsync(i => i.GameId == id);
         }
 
+        public async Task<Game?> GetWithReviewByIdAsync(int id)
+        {
+            return await _context.Games.Include(g => g.Reviews).ThenInclude(r => r.User).FirstOrDefaultAsync(g => g.GameId == id);
+        }
+
         public bool Save()
         {
             var saved = _context.SaveChanges();

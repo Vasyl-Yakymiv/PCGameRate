@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PCGameRate.Data;
 
@@ -11,9 +12,11 @@ using PCGameRate.Data;
 namespace PCGameRate.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250129110252_UpdateGameModel")]
+    partial class UpdateGameModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -197,7 +200,7 @@ namespace PCGameRate.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float?>("RatingAverage")
+                    b.Property<float>("RatingAverage")
                         .HasColumnType("real");
 
                     b.Property<int>("RatingCount")
@@ -274,24 +277,22 @@ namespace PCGameRate.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewId"));
 
-                    b.Property<DateTime?>("DatePosted")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("GameId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ReviewText")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("ReviewId");
 
                     b.HasIndex("GameId");
 
-                    b.HasIndex("Id");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Reviews");
                 });
@@ -452,23 +453,20 @@ namespace PCGameRate.Migrations
             modelBuilder.Entity("PCGameRate.Models.Review", b =>
                 {
                     b.HasOne("PCGameRate.Models.Game", "Game")
-                        .WithMany("Reviews")
+                        .WithMany()
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("PCGameRate.Models.User", "User")
                         .WithMany("Reviews")
-                        .HasForeignKey("Id");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Game");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("PCGameRate.Models.Game", b =>
-                {
-                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("PCGameRate.Models.User", b =>

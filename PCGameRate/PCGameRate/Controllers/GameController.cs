@@ -127,7 +127,7 @@ namespace PCGameRate.Controllers
         [HttpGet]
         public async Task<IActionResult> Detail(int id)
         {
-            var game = await _gameRepo.GetByIdAsync(id);
+            var game = await _gameRepo.GetWithReviewByIdAsync(id);
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             // Пошук рейтингу для поточного користувача та конкретної гри
@@ -135,7 +135,6 @@ namespace PCGameRate.Controllers
                 .Where(r => r.GameId == id && r.Id == userId)
                 .Select(r => r.RatingValue)
                 .FirstOrDefaultAsync();
-
             // Передаємо рейтинг користувача у ViewBag
             ViewBag.UserRating = userRating;
 

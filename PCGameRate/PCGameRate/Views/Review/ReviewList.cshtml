@@ -1,0 +1,29 @@
+﻿@using PCGameRate.ViewModels.Review
+@model IEnumerable<ReviewListViewModel>
+
+<h2>Мої рецензії</h2>
+
+@if (Model.Any())
+{
+    <div class="review-list">
+        @foreach (var review in Model)
+        {
+            <div class="review-item">
+                <div class="game-info">
+                    <h3>@review.GameTitle</h3>
+                    <img src="@review.GameImage" alt="@review.GameTitle" class="game-image" />
+                </div>
+                <div class="review-content">
+                    <p>@review.ReviewText</p>
+                    <p class="date-posted">@review.DatePosted?.ToString("dd.MM.yyyy")</p>
+                    <a type="button" class="btn btn-outline-info btn-sm" asp-controller="Game" asp-action="Detail" asp-route-id="@review.GameId"><i class="bi bi-eye"></i> Перейти до гри
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>У вас немає рецензій.</p>
+}

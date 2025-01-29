@@ -1,0 +1,13 @@
+﻿@using PCGameRate.ViewModels.Review
+@model CreateReviewViewModel
+
+<h2>Написати рецензію</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="Content">Ваша рецензія</label>
+        <textarea id="Content" name="Content" class="form-control" rows="5" required></textarea>
+    </div>
+    <input type="hidden" name="GameId" value="@Model.GameId" />
+    <button type="submit" class="btn btn-primary">Опублікувати</button>
+</form>

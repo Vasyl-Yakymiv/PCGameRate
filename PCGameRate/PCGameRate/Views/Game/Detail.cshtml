@@ -13,8 +13,7 @@
             <p class="text-muted"></p>
             <p>@Model.Description</p>
             <div class="d-flex align-items-center">
-                <i class="fas fa-gamepad text-warning me-2" style="font-size: 24px;"></i>
-                <span style="font-size: 20px;"> @Model.RatingAverage / 10</span>
+                <p>Рейтинг: @Model.RatingAverage?.ToString("0.0") (на основі @Model.RatingCount оцінок)</p>
             </div>
            @if (User.Identity.IsAuthenticated)
            {  
@@ -48,36 +47,37 @@
                     </div>
                 }
             </div> *@
-            <button class="carousel-control-prev" type="button" data-bs-target="#game-gallery" data-bs-slide="prev">
+            @* <button class="carousel-control-prev" type="button" data-bs-target="#game-gallery" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#game-gallery" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
-            </button>
+            </button> *@
         </div>
     </div>
-
-   @*  <!-- Рецензії -->
-    <div class="mt-5">
-        <h3>Reviews</h3>
-        @if (Model.Reviews.Any())
+     @if (User.Identity.IsAuthenticated)
+    { 
+    <div>
+    <a asp-action="Create" asp-controller="Review" asp-route-gameId="@Model.GameId" class="btn btn-success">Написати рецензію</a>
+    </div>
+    }
+    <h3>Рецензії</h3>
+    @if (Model.Reviews != null && Model.Reviews.Any())
+    {
+    @foreach (var review in Model.Reviews)
         {
-            @foreach (var review in Model.Reviews)
-            {
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">@review.Author</h5>
-                        <p class="card-text">@review.Content</p>
-                        <p class="text-muted small">Posted on @review.DatePosted.ToString("MMMM dd, yyyy")</p>
-                    </div>
-                </div>
-            }
+            <div class="review">
+                <p class="review-header">
+                    <strong>@review.User.UserName</strong> - @review.DatePosted?.ToString("dd.MM.yyyy")
+                </p>
+                <p class="review-text">@review.ReviewText</p>
+            </div>
         }
-        else
-        {
-            <p>No reviews yet. Be the first to review this game!</p>
-        }
-    </div> *@
+    }
+    else
+    {
+        <p>Немає рецензій для цієї гри.</p>
+    }
 </div>
