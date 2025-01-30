@@ -1,27 +1,20 @@
-﻿
-@using PCGameRate.ViewModels.Game
+﻿@using PCGameRate.ViewModels.Game
 @model CreateGameViewModel
 
-<div class="navbar-container">
-</div>
+<head>
+    <link rel="stylesheet" href="~/css/create-game.css" />
+</head>
 <div class="main-container">
     <section class="space-sm">
         <div class="container">
-            <div class="row mb-5">
-                <!--end of col-->
-            </div>
-            <!--end of row-->
+            <div class="row mb-5"></div>
+
             <div class="row flex-md-row card card-md">
                 <div class="card-body">
-                    <div class="text-center mb-5">
-                        <h1 class="h2 mb-2">Create meal</h1>
-                    </div>
                     <div class="row justify-content-center">
                         <div class="col-6 col-lg-5">
                             <form method="post" asp-action="Create">
                                 <div class="form-row form-group">
-                                    <div class="col">
-                                    </div>
                                     <div class="col">
                                         <input asp-for="Title" class="form-control form-control-lg" placeholder="Назва" />
                                         <span asp-validation-for="Title" class="text-danger"></span>
@@ -65,7 +58,13 @@
                                 </div>
                                 <div class="form-row form-group">
                                     <div class="col">
-                                        <button class="btn btn-primary" type="submit">Add Game</button>
+                                        <input asp-for="RatingAverage" class="form-control form-control-lg" placeholder="Рейтинг" />
+                                        <span asp-validation-for="RatingAverage" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-row form-group">
+                                    <div class="col d-flex justify-content-center">
+                                        <button class="btn btn-outline-secondary" type="submit" style="width: 80%;">Додати гру</button>
                                     </div>
                                 </div>
                             </form>
@@ -74,7 +73,5 @@
                 </div>
             </div>
         </div>
-        <!--end of container-->
     </section>
-    <!--end of section-->
 </div>

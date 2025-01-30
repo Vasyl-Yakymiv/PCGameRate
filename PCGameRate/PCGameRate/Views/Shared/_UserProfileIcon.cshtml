@@ -1,0 +1,9 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<User> UserManager
+
+@{
+    var user = await UserManager.GetUserAsync(User);
+    var profileImageUrl = user?.ProfileImageUrl ?? "https://static.vecteezy.com/ti/vetor-gratis/p1/2387693-icone-do-perfil-do-usuario-vetor.jpg";
+}
+
+<img src="@profileImageUrl" alt="Іконка профілю" class="profile-icon" />

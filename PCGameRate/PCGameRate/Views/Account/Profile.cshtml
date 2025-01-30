@@ -1,0 +1,23 @@
+﻿@using PCGameRate.ViewModels.Account
+@model ProfileViewModel
+
+<h2>Профіль користувача</h2>
+
+<form asp-action="Profile" method="post">
+    @if (!string.IsNullOrEmpty(Model.ProfileImageUrl))
+    {
+        <div class="profile-image-container">
+            <img src="@Model.ProfileImageUrl" alt="Зображення профілю" class="profile-image" />
+        </div>
+    }
+    <div>
+        <label asp-for="FullName"></label>
+        <input asp-for="FullName" />
+    </div>
+    <div>
+        <label asp-for="ProfileImageUrl">URL зображення профілю</label>
+        <input asp-for="ProfileImageUrl" />
+    </div>
+    <button type="submit">Зберегти зміни</button>
+</form>
+

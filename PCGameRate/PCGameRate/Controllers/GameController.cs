@@ -46,9 +46,8 @@ namespace PCGameRate.Controllers
                 Image = gameVM.Image,
                 ReleaseDate = gameVM.ReleaseDate,
                 Genre = gameVM.Genre,
-                Developer = gameVM.Developer
-
-                
+                Developer = gameVM.Developer,
+                RatingAverage = gameVM.RatingAverage   
             };
             _gameRepo.Add(game);
             return RedirectToAction("Index");

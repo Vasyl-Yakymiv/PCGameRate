@@ -4,14 +4,15 @@ namespace PCGameRate.ViewModels.Account
 {
     public class RegisterViewModel
     {
-        [Display(Name = "Email address")]
-        [Required(ErrorMessage = "Email address is required")]
+        [Display(Name = "Електронна пошта")]
+        [Required(ErrorMessage = "Електронна пошта є обов'язковою")]
         public string EmailAddress { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Пароль є обов'язковим")]
+        [Display(Name = "Пароль")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-        [Display(Name = "Confirm password")]
-        [Required(ErrorMessage = "Confirm password is required")]
+        [Display(Name = "Повторіть пароль")]
+        [Required(ErrorMessage = "Повторне введення паролю є обов'язковим")]
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Password do not match")]
         public string ConfirmPassword { get; set; }

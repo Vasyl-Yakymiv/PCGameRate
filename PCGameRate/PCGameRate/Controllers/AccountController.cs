@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PCGameRate.Data;
 using PCGameRate.Models;
@@ -10,13 +11,16 @@ namespace PCGameRate.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly ApplicationDbContext _context;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationDbContext context)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _signInManager = signInManager;
             _userManager = userManager;
+            _webHostEnvironment = webHostEnvironment;
+
         }
 
         [HttpGet]
@@ -104,6 +108,67 @@ namespace PCGameRate.Controllers
             }
             return View();
 
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Profile()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            var model = new ProfileViewModel
+            {
+                FullName = user.UserName,
+                ProfileImageUrl = user.ProfileImageUrl
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Profile(ProfileViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (user == null)
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+
+                user.UserName = model.FullName;
+
+                if (!string.IsNullOrEmpty(model.ProfileImageUrl))
+                {
+                    // Перевірка, чи URL є дійсним
+                    if (Uri.IsWellFormedUriString(model.ProfileImageUrl, UriKind.Absolute))
+                    {
+                        user.ProfileImageUrl = model.ProfileImageUrl;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Неправильний формат URL зображення.");
+                        return View("Profile", model);
+                    }
+                }
+
+                var result = await _userManager.UpdateAsync(user);
+                if (result.Succeeded)
+                {
+                    await _signInManager.RefreshSignInAsync(user);
+                    return RedirectToAction("Profile");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+            }
+
+            return View("Profile", model);
         }
     }
 }

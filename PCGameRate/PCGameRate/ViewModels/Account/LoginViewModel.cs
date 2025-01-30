@@ -4,10 +4,11 @@ namespace PCGameRate.ViewModels.Account
 {
     public class LoginViewModel
     {
-        [Display(Name = "Email Address")]
-        [Required(ErrorMessage = "Email address is required")]
+        [Display(Name = "Електронна пошта")]
+        [Required(ErrorMessage = "Електронна пошта є обов'язковою")]
         public string EmailAddress { get; set; }
-        [Required]
+        [Display(Name = "Пароль")]
+        [Required(ErrorMessage = "Пароль є обов'язковим")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
     }
