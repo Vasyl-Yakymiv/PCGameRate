@@ -15,5 +15,6 @@ namespace PCGameRate.Data
         public DbSet<Rating> Ratings { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Developer> Developers { get; set; }
+        public DbSet<Screenshot> Screenshots { get; set; }
     }
 }

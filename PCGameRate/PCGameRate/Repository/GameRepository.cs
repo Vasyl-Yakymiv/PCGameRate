@@ -31,6 +31,8 @@ namespace PCGameRate.Repository
             return await _context.Games.Include(i => i.Developer).Include(x => x.Genre).ToListAsync();
         }
 
+       
+
         public async Task<Game> GetByIdAsync(int id)
         {
             return await _context.Games.Include(i => i.Developer).Include(x => x.Genre).FirstOrDefaultAsync(i => i.GameId == id);
@@ -45,9 +47,9 @@ namespace PCGameRate.Repository
                 .FirstOrDefaultAsync(i => i.GameId == id);
         }
 
-        public async Task<Game?> GetWithReviewByIdAsync(int id)
+        public async Task<Game?> GetWithReviewAndScreenshotsByIdAsync(int id)
         {
-            return await _context.Games.Include(g => g.Reviews).ThenInclude(r => r.User).FirstOrDefaultAsync(g => g.GameId == id);
+            return await _context.Games.Include(s => s.Screenshots).Include(g => g.Reviews).ThenInclude(r => r.User).FirstOrDefaultAsync(g => g.GameId == id);
         }
 
         public bool Save()
@@ -61,5 +63,7 @@ namespace PCGameRate.Repository
             _context.Update(game);
             return Save();
         }
+
+       
     }
 }

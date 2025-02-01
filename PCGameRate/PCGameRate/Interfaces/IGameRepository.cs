@@ -7,7 +7,7 @@ namespace PCGameRate.Interfaces
     {
         Task<IEnumerable<Game>> GetAll();
         Task<Game?> GetByIdAsync(int id);
-        Task<Game?> GetWithReviewByIdAsync(int id);
+        Task<Game?> GetWithReviewAndScreenshotsByIdAsync(int id);
         Task<Game?> GetByIdAsyncNoTracking(int id);
         bool Add(Game game);
         bool Update(Game game);

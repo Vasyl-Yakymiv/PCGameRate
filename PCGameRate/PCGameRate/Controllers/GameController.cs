@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using PCGameRate.Data;
 using PCGameRate.Interfaces;
@@ -20,11 +21,35 @@ namespace PCGameRate.Controllers
             _context = context;
         }
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            var games = await _gameRepo.GetAll();
-            
-            return View(games);
+            int pageSize = 20; 
+            int totalGames = await _context.Games.CountAsync(); 
+            int totalPages = (int)Math.Ceiling((double)totalGames / pageSize);
+            if (totalGames == 0)
+            {
+                return View(new GameListViewModel
+                {
+                    Games = new List<Game>(), 
+                    CurrentPage = 1,
+                    TotalPages = 1
+                });
+            }
+            var games = await _context.Games
+                .Include(i => i.Developer)
+                .Include(x => x.Genre)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync(); 
+
+            var viewModel = new GameListViewModel
+            {
+                Games = games,
+                CurrentPage = page,
+                TotalPages = totalPages
+            };
+
+            return View(viewModel);
         }
 
         [HttpGet]
@@ -126,7 +151,7 @@ namespace PCGameRate.Controllers
         [HttpGet]
         public async Task<IActionResult> Detail(int id)
         {
-            var game = await _gameRepo.GetWithReviewByIdAsync(id);
+            var game = await _gameRepo.GetWithReviewAndScreenshotsByIdAsync(id);
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             // Пошук рейтингу для поточного користувача та конкретної гри

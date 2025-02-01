@@ -1,13 +1,13 @@
 ﻿@model Game
 
+<link rel="stylesheet" href="~/css/carousel.css" />
+
 <div class="container mt-5">
     <div class="row">
-      
         <div class="col-md-6">
             <img src="@Model.Image" class="img-fluid rounded shadow" alt="Game Image" />
         </div>
 
-       
         <div class="col-md-6">
             <h1>@Model.Title</h1>
             <p class="text-muted"></p>
@@ -15,60 +15,79 @@
             <div class="d-flex align-items-center">
                 <p>Рейтинг: @Model.RatingAverage?.ToString("0.0") (на основі @Model.RatingCount оцінок)</p>
             </div>
-           @if (User.Identity.IsAuthenticated)
-           {  
-            <div>
-                <h3>
-                    Ваш рейтинг: @if (ViewBag.UserRating != null)
-                    {
-                        <span>@ViewBag.UserRating</span>
-                    }
-                    else
-                    {
-                        <span>Не оцінено</span>
-                    }
-                </h3>
-                <a asp-action="RateGame" asp-controller="Rating" asp-route-gameId="@Model.GameId" class="btn btn-success">
-                    Оцінити гру
-                </a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div>
+                    <h3>
+                        Ваш рейтинг: @if (ViewBag.UserRating != null)
+                        {
+                            <span>@ViewBag.UserRating</span>
+                        }
+                        else
+                        {
+                            <span>Не оцінено</span>
+                        }
+                    </h3>
+                    <a asp-action="RateGame" asp-controller="Rating" asp-route-gameId="@Model.GameId" class="btn btn-success">
+                        Оцінити гру
+                    </a>
                 </div>
             }
         </div>
     </div>
 
-    <div class="mt-5">
-        <h3>Gallery</h3>
-        <div id="game-gallery" class="carousel slide" data-bs-ride="carousel">
-            @* <div class="carousel-inner">
-                @for (var i = 0; i < Model.Image.Count; i++)
+    @if (Model.Screenshots != null && Model.Screenshots.Any())
+    {
+        <div id="screenshotSlider" class="carousel slide my-5" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @for (int i = 0; i < Model.Screenshots.Count; i += 3) // Ітеруємо по трійках
                 {
                     <div class="carousel-item @(i == 0 ? "active" : "")">
-                        <img src="@Model.Images[i]" class="d-block w-100 rounded shadow" alt="Gallery Image @i" />
+                        <div class="row">
+                            @for (int j = i; j < i + 3 && j < Model.Screenshots.Count; j++)
+                            {
+                                <div class="col-4">
+                                    <img src="@Model.Screenshots.ToList()[j].ScreenshotUrl" class="d-block w-100" alt="Screenshot" style="height: 400px; object-fit: cover;">
+                                </div>
+                            }
+                        </div>
                     </div>
                 }
-            </div> *@
-            @* <button class="carousel-control-prev" type="button" data-bs-target="#game-gallery" data-bs-slide="prev">
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#screenshotSlider" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
+                <span class="visually-hidden">Попереднє</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#game-gallery" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#screenshotSlider" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button> *@
+                <span class="visually-hidden">Наступне</span>
+            </button>
         </div>
-    </div>
-     @if (User.Identity.IsAuthenticated)
-    { 
-    <div>
-    <a asp-action="Create" asp-controller="Review" asp-route-gameId="@Model.GameId" class="btn btn-success">Написати рецензію</a>
-    </div>
     }
+     @if (User.IsInRole("admin"))
+    {
+        <div class="screenshot-form-container mb-5">
+            <form asp-controller="Screenshot" asp-action="AddScreenshot" method="post" class="screenshot-form">
+                <input type="hidden" name="gameId" value="@Model.GameId" />
+                <label>Додати скріншот:</label>
+                <input type="text" name="screenshotUrl" placeholder="URL зображення" class="form-control mb-2" />
+                <button type="submit" class="btn btn-success">Додати фото</button>
+            </form>
+        </div>
+    }
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div>
+            <a asp-action="Create" asp-controller="Review" asp-route-gameId="@Model.GameId" class="btn btn-success mb-5">Написати рецензію</a>
+        </div>
+    }
+
     <h3>Рецензії</h3>
     @if (Model.Reviews != null && Model.Reviews.Any())
     {
-    @foreach (var review in Model.Reviews)
+        @foreach (var review in Model.Reviews)
         {
-            <div class="review">
+            <div class="review mb-3">
                 <p class="review-header">
                     <strong>@review.User.UserName</strong> - @review.DatePosted?.ToString("dd.MM.yyyy")
                 </p>

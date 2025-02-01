@@ -1,12 +1,9 @@
-﻿@model IEnumerable<Game>
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using PCGameRate.ViewModels.Game
+@model GameListViewModel
+
 <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-        @foreach (var game in Model)
+        @foreach (var game in Model.Games)
         {
             <div class="col">
                 <div class="card shadow-sm rounded-3" style="overflow: hidden; border: none; height: 100%;">
@@ -37,5 +34,35 @@
                 </div>
             </div>
         }
+    </div>
+    <div class="d-flex justify-content-center mt-4">
+        <ul class="pagination">
+            @if (Model.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="Index" asp-route-page="1">&laquo; Перша</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" asp-action="Index" asp-route-page="@Model.CurrentPage - 1">Попередня</a>
+                </li>
+            }
+
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                    <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+                </li>
+            }
+
+            @if (Model.CurrentPage < Model.TotalPages)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="Index" asp-route-page="@Model.CurrentPage + 1">Наступна</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" asp-action="Index" asp-route-page="@Model.TotalPages">Остання &raquo;</a>
+                </li>
+            }
+        </ul>
     </div>
 </div>
