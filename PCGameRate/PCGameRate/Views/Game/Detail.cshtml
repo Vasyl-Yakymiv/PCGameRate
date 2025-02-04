@@ -40,7 +40,7 @@
     {
         <div id="screenshotSlider" class="carousel slide my-5" data-bs-ride="carousel">
             <div class="carousel-inner">
-                @for (int i = 0; i < Model.Screenshots.Count; i += 3) // Ітеруємо по трійках
+                @for (int i = 0; i < Model.Screenshots.Count; i += 3) 
                 {
                     <div class="carousel-item @(i == 0 ? "active" : "")">
                         <div class="row">
@@ -92,6 +92,22 @@
                     <strong>@review.User.UserName</strong> - @review.DatePosted?.ToString("dd.MM.yyyy")
                 </p>
                 <p class="review-text">@review.ReviewText</p>
+                @if (User.IsInRole("admin"))
+                {
+                    <form asp-action="Delete" asp-controller="Review" method="post" onsubmit="return confirmDelete(event, this)" class="delete-form">
+                        <input type="hidden" name="id" value="@review.ReviewId" />
+                        <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Видалити</button>
+                    </form>
+                    <script>
+                        function confirmDelete(event, form) {
+                        event.preventDefault();
+
+                        if (confirm("Ви впевнені, що хочете видалити цю рецензію?")) {
+                        form.submit();
+                        }
+                        }
+                    </script>
+                }
             </div>
         }
     }

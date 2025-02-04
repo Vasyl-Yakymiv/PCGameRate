@@ -143,7 +143,7 @@ namespace PCGameRate.Controllers
 
                 if (!string.IsNullOrEmpty(model.ProfileImageUrl))
                 {
-                    // Перевірка, чи URL є дійсним
+                    
                     if (Uri.IsWellFormedUriString(model.ProfileImageUrl, UriKind.Absolute))
                     {
                         user.ProfileImageUrl = model.ProfileImageUrl;

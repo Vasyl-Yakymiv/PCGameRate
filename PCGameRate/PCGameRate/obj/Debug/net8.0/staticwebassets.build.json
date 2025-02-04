@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+ik+x1dgd8wnt2k654XUBldCLs9hNDv6vd4dAtg3TBc=",
+  "Hash": "J7rO6srkoVbR9taUx6ULHH43/rhW8VfJt0IDAg8+z+U=",
   "Source": "PCGameRate",
   "BasePath": "_content/PCGameRate",
   "Mode": "Default",
@@ -93,6 +93,25 @@
       "OriginalItemSpec": "wwwroot\\css\\create-game.css"
     },
     {
+      "Identity": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\gameindex.css",
+      "SourceId": "PCGameRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\",
+      "BasePath": "_content/PCGameRate",
+      "RelativePath": "css/gameindex.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\gameindex.css"
+    },
+    {
       "Identity": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\login.css",
       "SourceId": "PCGameRate",
       "SourceType": "Discovered",
@@ -167,6 +186,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\top100.css",
+      "SourceId": "PCGameRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\",
+      "BasePath": "_content/PCGameRate",
+      "RelativePath": "css/top100.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\top100.css"
     },
     {
       "Identity": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\favicon.ico",

@@ -1,4 +1,4 @@
-﻿/* profile.css */
+﻿
 .profile-container {
     background: white;
     padding: 20px;
@@ -6,7 +6,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 350px;
     text-align: center;
-    margin: 50px auto; /* Додає відступ зверху */
+    margin: 50px auto; 
 }
 
     .profile-container h2 {

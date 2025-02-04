@@ -24,11 +24,12 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Index">Ігри</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Index">Games</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Top100">Топ 100 ігор</a>
                         </li>
+                        
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         @if (User.Identity.IsAuthenticated)

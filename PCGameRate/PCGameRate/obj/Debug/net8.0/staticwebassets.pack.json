@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\create-game.css"
     },
     {
+      "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\gameindex.css",
+      "PackagePath": "staticwebassets\\css\\gameindex.css"
+    },
+    {
       "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
     },
@@ -27,6 +31,10 @@
     {
       "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\top100.css",
+      "PackagePath": "staticwebassets\\css\\top100.css"
     },
     {
       "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\favicon.ico",

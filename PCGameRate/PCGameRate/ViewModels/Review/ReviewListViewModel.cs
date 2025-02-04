@@ -2,6 +2,7 @@
 {
     public class ReviewListViewModel
     {
+        public int ReviewId {  get; set; }
         public int? GameId { get; set; }
         public string GameTitle { get; set; }
         public string GameImage { get; set; }

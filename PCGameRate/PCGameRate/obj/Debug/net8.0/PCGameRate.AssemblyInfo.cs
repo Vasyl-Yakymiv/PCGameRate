@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PCGameRate")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3bd892adf503c83463c97e75730cacf3d2a52f97")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+53ee198bca479949acd298835cc555923f1d1203")]
 [assembly: System.Reflection.AssemblyProductAttribute("PCGameRate")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PCGameRate")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

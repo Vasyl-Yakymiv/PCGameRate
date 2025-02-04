@@ -154,15 +154,28 @@ namespace PCGameRate.Controllers
             var game = await _gameRepo.GetWithReviewAndScreenshotsByIdAsync(id);
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            // Пошук рейтингу для поточного користувача та конкретної гри
+          
             var userRating = await _context.Ratings
                 .Where(r => r.GameId == id && r.Id == userId)
                 .Select(r => r.RatingValue)
                 .FirstOrDefaultAsync();
-            // Передаємо рейтинг користувача у ViewBag
+            
             ViewBag.UserRating = userRating;
 
             return game == null ? NotFound() : View(game);
+        }
+
+        [HttpGet]
+        public async  Task<IActionResult> Top100()
+        {
+            var topGames = await _gameRepo.GetTop100();
+
+            if (topGames == null)
+            {
+                return View("Error");
+            }
+
+            return View(topGames);
         }
     }
 }

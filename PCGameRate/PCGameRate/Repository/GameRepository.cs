@@ -47,6 +47,16 @@ namespace PCGameRate.Repository
                 .FirstOrDefaultAsync(i => i.GameId == id);
         }
 
+        public async Task<IEnumerable<Game>> GetTop100()
+        {
+            return await _context.Games
+                .Where(g => g.RatingCount >= 1000)
+                .OrderByDescending(g => g.RatingAverage)
+                .ThenByDescending(g => g.RatingCount)
+                .Take(100)
+                .ToListAsync();
+        }
+
         public async Task<Game?> GetWithReviewAndScreenshotsByIdAsync(int id)
         {
             return await _context.Games.Include(s => s.Screenshots).Include(g => g.Reviews).ThenInclude(r => r.User).FirstOrDefaultAsync(g => g.GameId == id);

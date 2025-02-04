@@ -16,14 +16,70 @@
                 <div class="review-content">
                     <p>@review.ReviewText</p>
                     <p class="date-posted">@review.DatePosted?.ToString("dd.MM.yyyy")</p>
-                    <a type="button" class="btn btn-outline-info btn-sm" asp-controller="Game" asp-action="Detail" asp-route-id="@review.GameId"><i class="bi bi-eye"></i> Перейти до гри
-                    </a>
+
+                    <div class="review-actions">
+                        <a type="button" class="btn btn-outline-info btn-sm" asp-controller="Game" asp-action="Detail" asp-route-id="@review.GameId">
+                            <i class="bi bi-eye"></i> Перейти до гри
+                        </a>
+                        <form asp-action="Delete" method="post" onsubmit="return confirmDelete(event, this)" class="delete-form">
+                            <input type="hidden" name="id" value="@review.ReviewId" />
+                            <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Видалити</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         }
     </div>
+
+    <script>
+        function confirmDelete(event, form) {
+            event.preventDefault();
+
+            if (confirm("Ви впевнені, що хочете видалити цю рецензію?")) {
+                form.submit();
+            }
+        }
+    </script>
 }
 else
 {
     <p>У вас немає рецензій.</p>
 }
+
+<style>
+    .review-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .review-item {
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 5px;
+        background: #f9f9f9;
+    }
+
+    .game-info {
+        text-align: center;
+    }
+
+    .game-image {
+        max-width: 150px;
+        height: auto;
+        display: block;
+        margin: 10px auto;
+    }
+
+    .review-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .delete-form {
+        margin: 0;
+    }
+</style>
+

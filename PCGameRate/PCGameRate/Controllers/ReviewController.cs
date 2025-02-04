@@ -58,6 +58,7 @@ namespace PCGameRate.Controllers
                 .Where(r => r.Id == userId)
                 .Select(r => new ReviewListViewModel
                 {
+                    ReviewId = r.ReviewId,
                     GameId = r.GameId,
                     GameTitle = r.Game.Title,
                     GameImage = r.Game.Image,
@@ -67,6 +68,21 @@ namespace PCGameRate.Controllers
                 .ToListAsync();
 
             return View(ratedGames);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var review = _context.Reviews.Find(id);
+            if (review == null)
+            {
+                return NotFound();
+            }
+
+            _context.Reviews.Remove(review);
+            _context.SaveChanges();
+
+            return RedirectToAction("ReviewList","Review"); 
         }
     }
 }
