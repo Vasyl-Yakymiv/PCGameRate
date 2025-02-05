@@ -1,33 +1,34 @@
-﻿@model IEnumerable<Game>
-<link rel="stylesheet" href="~/css/top100.css" />
+﻿@model List<Game>
 
-<h2>Топ 100 ігор</h2>
+<link rel="stylesheet" href="~/css/search-results.css" />
+
+@{
+    ViewData["Title"] = "Результати пошуку";
+}
+
+<h2>Результати пошуку</h2>
 
 @if (Model.Any())
 {
-    <div class="top-games">
-        @{
-            int rank = 1;
-        } 
+     <div class="top-games">
         @foreach (var game in Model)
         {
             <div class="game-item">
-                <span class="rank">#@rank</span>
                 <img src="@game.Image" alt="@game.Title" class="game-image" />
                 <div class="game-info">
                     <h3>@game.Title</h3>
-                    <p>⭐ <strong>@game.RatingAverage?.ToString("0.0")</strong></p>
+                    <p>Оцінка: <strong>@game.RatingAverage?.ToString("0.0")</strong></p>
                     <p>Голосів: <strong>@game.RatingCount</strong></p>
                     <a href="@Url.Action("Detail", "Game", new { id = game.GameId })" class="btn btn-outline-info btn-sm">
                         <i class="bi bi-eye"></i> Перейти до гри
                     </a>
                 </div>
             </div>
-            rank++;
         }
     </div>
 }
 else
 {
-    <p>У цьому рейтингу ще немає ігор.</p>
+    <p>Нічого не знайдено.</p>
 }
+

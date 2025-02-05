@@ -26,6 +26,16 @@
         <span asp-validation-for="ReleaseDate" class="text-danger"></span>
     </div>
     <div class="form-group">
+        <label asp-for="RatingAverage">Рейтинг</label>
+        <input asp-for="RatingAverage" class="form-control" placeholder="Рейтинг">
+        <span asp-validation-for="RatingAverage" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="RatingCount">Кількість голосів</label>
+        <input asp-for="RatingCount" class="form-control" placeholder="Кількість голосів">
+        <span asp-validation-for="RatingCount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
         <label asp-for="Genre.GameGenre">Жанр</label>
         <input asp-for="Genre.GameGenre" class="form-control" placeholder="Жанр">
         <span asp-validation-for="Genre.GameGenre" class="text-danger"></span>

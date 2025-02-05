@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\css\\registercss.css"
     },
     {
+      "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\search-results.css",
+      "PackagePath": "staticwebassets\\css\\search-results.css"
+    },
+    {
       "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -43,6 +47,10 @@
     {
       "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\img\\gamepad.png",
       "PackagePath": "staticwebassets\\img\\gamepad.png"
+    },
+    {
+      "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\js\\search.js",
+      "PackagePath": "staticwebassets\\js\\search.js"
     },
     {
       "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\js\\site.js",

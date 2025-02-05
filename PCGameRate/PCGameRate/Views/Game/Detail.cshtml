@@ -13,7 +13,7 @@
             <p class="text-muted"></p>
             <p>@Model.Description</p>
             <div class="d-flex align-items-center">
-                <p>Рейтинг: @Model.RatingAverage?.ToString("0.0") (на основі @Model.RatingCount оцінок)</p>
+                <p>⭐ @Model.RatingAverage?.ToString("0.0") (на основі @Model.RatingCount оцінок)</p>
             </div>
             @if (User.Identity.IsAuthenticated)
             {

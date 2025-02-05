@@ -90,6 +90,8 @@ namespace PCGameRate.Controllers
                 Image = game.Image,
                 ReleaseDate = game.ReleaseDate,
                 Genre = game.Genre,
+                RatingAverage = game.RatingAverage,
+                RatingCount = game.RatingCount,
                 Developer = game.Developer
             };
             return View(gameVM);
@@ -119,7 +121,10 @@ namespace PCGameRate.Controllers
                 Image = gameVM.Image,
                 ReleaseDate = gameVM.ReleaseDate,
                 Genre = gameVM.Genre,
-                Developer = gameVM.Developer
+                Developer = gameVM.Developer,
+                RatingAverage = gameVM.RatingAverage,
+                RatingCount= gameVM.RatingCount
+                
             };
 
             _gameRepo.Update(game);
@@ -177,5 +182,40 @@ namespace PCGameRate.Controllers
 
             return View(topGames);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> SearchSuggestions(string query)
+        {
+            if (string.IsNullOrWhiteSpace(query))
+            {
+                return Json(new { results = new List<object>() });
+            }
+
+            var games = await _context.Games
+                .Where(g => g.Title.Contains(query))
+                .Select(g => new
+                {
+                    g.GameId,
+                    g.Title,
+                    g.Image,
+                    g.RatingAverage
+                })
+                .Take(5) 
+                .ToListAsync();
+
+            return Json(new { results = games });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> SearchResults(string query)
+        {
+            var results = await _context.Games
+                .Where(g => g.Title.Contains(query))
+                .ToListAsync();
+
+            return View(results);
+        }
     }
+
 }
+
