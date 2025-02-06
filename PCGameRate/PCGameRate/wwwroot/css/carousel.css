@@ -26,8 +26,9 @@
 .review {
     padding: 15px;
     border: 1px solid #ddd;
+    width: 1272px;
     border-radius: 8px;
-    background-color: #fafafa;
+    background: #e3f2fd;
 }
 .review-header {
     font-size: 16px;

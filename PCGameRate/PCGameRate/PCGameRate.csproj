@@ -9,6 +9,7 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\css\gameindex.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\profile.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\review-list.css" />
   </ItemGroup>
 
   <ItemGroup>

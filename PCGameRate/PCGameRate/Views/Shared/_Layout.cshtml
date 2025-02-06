@@ -21,9 +21,6 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Index">Ігри</a>
                         </li>
                         <li class="nav-item">
@@ -47,10 +44,10 @@
                                         @User.Identity.Name
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
-                                        <li><a class="dropdown-item" style="color: black;" asp-controller="Rating" asp-action="RatingList">Список оцінених ігор</a></li>
-                                        <li><a class="dropdown-item" style="color: black;" asp-controller="Review" asp-action="ReviewList">Список написаних рецензій</a></li>
-                                        <li><a class="dropdown-item" style="color: black;" asp-controller="User" asp-action="Recommendations">Список рекомендацій</a></li>
-                                        <li><a class="dropdown-item" style="color: black;" asp-controller="Account" asp-action="Profile">Налаштування акаунта</a></li>
+                                        <li><a class="dropdown-item" style="color: black; margin: 0px 0px 0px 0px;" asp-controller="Rating" asp-action="RatingList">Список оцінених ігор</a></li>
+                                        <li><a class="dropdown-item" style="color: black; margin: 0px 0px 0px 0px;" asp-controller="Review" asp-action="ReviewList">Список написаних рецензій</a></li>
+                                        <li><a class="dropdown-item" style="color: black; margin: 0px 0px 0px 0px;" asp-controller="User" asp-action="Recommendations">Список рекомендацій</a></li>
+                                        <li><a class="dropdown-item" style="color: black; margin: 0px 0px 0px 0px;" asp-controller="Account" asp-action="Profile">Налаштування акаунта</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">

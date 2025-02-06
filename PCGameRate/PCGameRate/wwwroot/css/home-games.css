@@ -1,0 +1,69 @@
+﻿.swiper {
+    width: 90%;
+    margin: auto;
+    height: 350px;
+}
+
+.game-card {
+    background: #e3f2fd;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    color: black;
+    transition: transform 0.3s ease;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+    .game-card:hover {
+        transform: scale(1.05);
+    }
+
+.game-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.game-info {
+    margin-top: 10px;
+    color: black;
+    font-size: 14px;
+}
+
+.title {
+    width: 22ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #0D6EFD;
+    text-align: left;
+    margin-left: 20px;
+    padding-bottom: 5px;
+    width: fit-content;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.swiper-button-next {
+    right: 0;
+}
+
+.swiper-button-prev {
+    left: 0;
+}

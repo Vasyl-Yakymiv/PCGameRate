@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\gameindex.css"
     },
     {
+      "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\home-games.css",
+      "PackagePath": "staticwebassets\\css\\home-games.css"
+    },
+    {
       "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
     },
@@ -25,8 +29,16 @@
       "PackagePath": "staticwebassets\\css\\profile.css"
     },
     {
+      "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\rating-list.css",
+      "PackagePath": "staticwebassets\\css\\rating-list.css"
+    },
+    {
       "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\registercss.css",
       "PackagePath": "staticwebassets\\css\\registercss.css"
+    },
+    {
+      "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\review-list.css",
+      "PackagePath": "staticwebassets\\css\\review-list.css"
     },
     {
       "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\search-results.css",
@@ -47,6 +59,14 @@
     {
       "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\img\\gamepad.png",
       "PackagePath": "staticwebassets\\img\\gamepad.png"
+    },
+    {
+      "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\js\\expected-games.js",
+      "PackagePath": "staticwebassets\\js\\expected-games.js"
+    },
+    {
+      "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\js\\popular-games.js",
+      "PackagePath": "staticwebassets\\js\\popular-games.js"
     },
     {
       "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\js\\search.js",

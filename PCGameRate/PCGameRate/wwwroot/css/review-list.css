@@ -1,0 +1,46 @@
+﻿
+.review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.review-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 1296px;
+    border-radius: 5px;
+    background: #e3f2fd;
+}
+
+.game-info {
+    text-align: center;
+}
+
+.game-image {
+    max-width: 150px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+.review-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.delete-form {
+    margin: 0;
+}
+
+.review-content {
+    width: 729px;
+}
+
+.review-content p {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 100%;
+}

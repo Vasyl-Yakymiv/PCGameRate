@@ -12,6 +12,8 @@ namespace PCGameRate.Models
         public string Image { get; set; }
         public string ReleaseDate { get; set; }
         public float? RatingAverage { get; set; }
+        public bool? IsPopular { get; set; }
+        public bool? IsExpected { get; set; }
         public int RatingCount { get; set; }
         [ForeignKey("Developer")]
         public int DeveloperId { get; set; }

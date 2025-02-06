@@ -1,6 +1,8 @@
 ﻿@using PCGameRate.ViewModels.Review
 @model IEnumerable<ReviewListViewModel>
 
+<link rel="stylesheet" href="~/css/review-list.css" />
+
 <h2>Мої рецензії</h2>
 
 @if (Model.Any())
@@ -14,7 +16,7 @@
                     <img src="@review.GameImage" alt="@review.GameTitle" class="game-image" />
                 </div>
                 <div class="review-content">
-                    <p>@review.ReviewText</p>
+                    <p class="review-text">@review.ReviewText</p> 
                     <p class="date-posted">@review.DatePosted?.ToString("dd.MM.yyyy")</p>
 
                     <div class="review-actions">
@@ -30,6 +32,7 @@
             </div>
         }
     </div>
+
 
     <script>
         function confirmDelete(event, form) {
@@ -47,39 +50,11 @@ else
 }
 
 <style>
-    .review-list {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .review-item {
-        border: 1px solid #ddd;
-        padding: 15px;
-        border-radius: 5px;
-        background: #f9f9f9;
-    }
-
-    .game-info {
-        text-align: center;
-    }
-
-    .game-image {
-        max-width: 150px;
-        height: auto;
-        display: block;
-        margin: 10px auto;
-    }
-
-    .review-actions {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 10px;
-    }
-
-    .delete-form {
-        margin: 0;
+    .review-text {
+        white-space: pre-wrap; /* Зберігає переноси рядків */
+        word-wrap: break-word; /* Переносить довгі слова */
+        max-width: 100%; /* Обмежує ширину тексту */
     }
 </style>
+
 

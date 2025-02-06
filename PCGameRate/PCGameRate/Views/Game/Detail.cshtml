@@ -87,11 +87,11 @@
     {
         @foreach (var review in Model.Reviews)
         {
-            <div class="review mb-3">
+            <div class="review" style="background: #e3f2fd;">
                 <p class="review-header">
                     <strong>@review.User.UserName</strong> - @review.DatePosted?.ToString("dd.MM.yyyy")
                 </p>
-                <p class="review-text">@review.ReviewText</p>
+                <p class="review-text" style="white-space: pre-wrap; word-wrap: break-word;max-width: 100%;">@review.ReviewText</p>
                 @if (User.IsInRole("admin"))
                 {
                     <form asp-action="Delete" asp-controller="Review" method="post" onsubmit="return confirmDelete(event, this)" class="delete-form">

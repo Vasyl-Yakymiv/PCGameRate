@@ -10,6 +10,7 @@ namespace PCGameRate.ViewModels.Game
         public string ReleaseDate { get; set; }
         public float? RatingAverage { get; set; }
         public int RatingCount { get; set; }
+        public bool IsPopular { get; set; }
         public Developer Developer { get; set; }
         public Genre Genre { get; set; }
     }

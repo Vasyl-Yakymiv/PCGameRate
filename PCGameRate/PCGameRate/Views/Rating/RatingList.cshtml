@@ -1,17 +1,19 @@
 ﻿@using PCGameRate.ViewModels.Rating
 @model IEnumerable<RatedGameViewModel>
 
+<link rel="stylesheet" href="~/css/rating-list.css" />
+
 <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
         @foreach (var game in Model)
         {
             <div class="col">
-                <div class="card shadow-sm rounded-3" style="overflow: hidden; border: none; height: 100%;">
+                <div class="card shadow-sm rounded-3 game-item" style="overflow: hidden; border: none; height: 100%;">
                     <img class="card-img-top" src="@game.GameImage" alt="@game.GameTitle">
 
                     <div class="card-body">
-                        <h5 class="card-title fw-bold text-primary title">@game.GameTitle</h5> 
-                        <p class="text-muted small mb-2"><span class="fw-semibold">@game.ReleaseDate</span></p>
+                        <h5 class="card-title fw-bold text-primary title">@game.GameTitle</h5>
+                        <p class="text-muted small mb-2"><span class="fw-semibold">📅 @game.ReleaseDate</span></p>
                         <p class="text-muted small mb-2">⭐ <span class="fw-semibold"> @game.RatingAverage?.ToString("0.0")</span></p>
                         <p class="text-muted small mb-2">Ваша оцінка: <span class="fw-semibold"> @game.RatingValue</span></p>
                         <p class="text-muted small mb-2">Оцінено: <span class="fw-semibold"> @game.RatingDate?.ToString("dd.MM.yyyy")</span></p>
@@ -19,7 +21,7 @@
                         <p class="text-muted small mb-2">Жанр: <span class="fw-semibold"> @game.Genre</span></p>
                     </div>
 
-                    <div class="card-footer d-flex justify-content-between bg-light">
+                    <div class="card-footer d-flex justify-content-between game-item">
                         <a type="button" class="btn btn-outline-info btn-sm" asp-controller="Game" asp-action="Detail" asp-route-id="@game.GameId">
                             <i class="bi bi-eye"></i> Перейти до гри
                         </a>

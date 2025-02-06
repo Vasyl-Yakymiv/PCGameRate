@@ -21,7 +21,7 @@
                 }
 
                 results.forEach(game => {
-                    let item = `
+                    let item =`
                         <div class="suggestion-item">
                             <a href="/Game/Detail/${game.gameId}" class="game-link">
                                 <img src="${game.image}" alt="${game.title}" class="game-thumb">

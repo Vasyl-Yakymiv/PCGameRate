@@ -92,7 +92,8 @@ namespace PCGameRate.Controllers
                 Genre = game.Genre,
                 RatingAverage = game.RatingAverage,
                 RatingCount = game.RatingCount,
-                Developer = game.Developer
+                Developer = game.Developer,
+                IsPopular = (bool)game.IsPopular
             };
             return View(gameVM);
         }
@@ -123,7 +124,8 @@ namespace PCGameRate.Controllers
                 Genre = gameVM.Genre,
                 Developer = gameVM.Developer,
                 RatingAverage = gameVM.RatingAverage,
-                RatingCount= gameVM.RatingCount
+                RatingCount= gameVM.RatingCount,
+                IsPopular = gameVM.IsPopular
                 
             };
 
@@ -191,16 +193,16 @@ namespace PCGameRate.Controllers
                 return Json(new { results = new List<object>() });
             }
 
-            var games = await _context.Games
+                var games = await _context.Games
                 .Where(g => g.Title.Contains(query))
                 .Select(g => new
                 {
-                    g.GameId,
-                    g.Title,
-                    g.Image,
-                    g.RatingAverage
+                g.GameId,
+                g.Title,
+                g.Image,
+                RatingAverage = g.RatingAverage.HasValue ? g.RatingAverage.Value.ToString("0.0") : "0.0"
                 })
-                .Take(5) 
+                .Take(5)
                 .ToListAsync();
 
             return Json(new { results = games });
@@ -215,6 +217,43 @@ namespace PCGameRate.Controllers
 
             return View(results);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetPopularGames()
+        {
+            var popularGames = await _context.Games
+                .Where(g => (bool)g.IsPopular)
+                .Select(g => new
+                {
+                    g.GameId,
+                    g.Title,
+                    g.Image,
+                    RatingAverage = g.RatingAverage.HasValue ? g.RatingAverage.Value.ToString("0.0") : "0.0",
+                    ReleaseYear = g.ReleaseDate
+                })
+                .ToListAsync();
+
+            return Json(popularGames);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetExpectedGames()
+        {
+            var popularGames = await _context.Games
+                .Where(g => (bool)g.IsExpected)
+                .Select(g => new
+                {
+                    g.GameId,
+                    g.Title,
+                    g.Image,
+                    RatingAverage = g.RatingAverage.HasValue ? g.RatingAverage.Value.ToString("0.0") : "0.0",
+                    ReleaseYear = g.ReleaseDate
+                })
+                .ToListAsync();
+
+            return Json(popularGames);
+        }
+
     }
 
 }
