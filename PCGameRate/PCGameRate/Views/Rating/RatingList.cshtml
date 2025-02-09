@@ -2,8 +2,26 @@
 @model IEnumerable<RatedGameViewModel>
 
 <link rel="stylesheet" href="~/css/rating-list.css" />
-
 <div class="container">
+    <!-- Сортування -->
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="border: none">
+                    Сортувати за
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="@Url.Action("RatingList", "Rating", new { sortOrder = "userRating_asc" })">Ваша оцінка (за зростанням)</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("RatingList", "Rating", new { sortOrder = "userRating_desc" })">Ваша оцінка (за спаданням)</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("RatingList", "Rating", new { sortOrder = "releaseDate_asc" })">Дата релізу (за зростанням)</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("RatingList", "Rating", new { sortOrder = "releaseDate_desc" })">Дата релізу (за спаданням)</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("RatingList", "Rating", new { sortOrder = "rating_asc" })">Рейтинг гри (за зростанням)</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("RatingList", "Rating", new { sortOrder = "rating_desc" })">Рейтинг гри (за спаданням)</a></li>  
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
         @foreach (var game in Model)
         {
@@ -31,3 +49,18 @@
         }
     </div>
 </div>
+
+
+<style>
+    .dropdown-item {
+        padding: 10px 20px;
+        color: #000; 
+        transition: background-color 0.3s ease; 
+    }
+
+        .dropdown-item:hover {
+            background-color: #4682B4;
+            color: #000;
+        }
+</style>
+

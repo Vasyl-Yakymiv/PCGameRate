@@ -1,0 +1,56 @@
+﻿.mySwiperReviews {
+    width: 90%;
+    margin: 20px auto;
+    height: 400px;
+}
+
+.review-card {
+    background: #e3f2fd;
+    padding: 15px;
+    margin: 10px 10px 10px 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 338px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+    .review-card:hover {
+        transform: scale(1.05);
+    }
+
+    .review-card .game-image {
+        width: 100%;
+        height: 140px;
+        object-fit: contain;
+        border-radius: 10px;
+    }
+
+.review-info {
+    padding-top: 10px;
+}
+
+    .review-info .title {
+        font-size: 18px;
+        margin: 5px 0;
+        color: #333;
+    }
+
+    .review-info .username {
+        font-weight: bold;
+        color: #555;
+    }
+
+.review-text {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+}
+
+.swiper-pagination {
+    margin-top: 10px;
+}

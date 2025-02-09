@@ -253,6 +253,25 @@ namespace PCGameRate.Controllers
 
             return Json(popularGames);
         }
+        [HttpGet]
+        public async Task<IActionResult> GetLatestReviews()
+        {
+            var latestReviews = await _context.Reviews
+                .OrderByDescending(r => r.DatePosted) 
+                .Take(20)
+                .Select(r => new
+                {
+                    r.Game.GameId,
+                    r.Game.Title,
+                    r.Game.Image, 
+                    r.User.UserName, 
+                    r.ReviewText
+                })
+                .ToListAsync();
+
+            return Json(latestReviews);
+        }
+
 
     }
 

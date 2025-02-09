@@ -77,14 +77,15 @@ namespace PCGameRate.Controllers
             return RedirectToAction("Detail", "Game", new { id = gameId });
         }
         [HttpGet]
-        public async Task<IActionResult> RatingList()
-        {          
+        public async Task<IActionResult> RatingList(string sortOrder)
+        {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (string.IsNullOrEmpty(userId))
             {
                 return Unauthorized();
             }
-            var ratedGames = await _context.Ratings
+
+            IQueryable<RatedGameViewModel> ratedGamesQuery = _context.Ratings
                 .Include(r => r.Game)
                 .Where(r => r.Id == userId)
                 .Select(r => new RatedGameViewModel
@@ -92,16 +93,43 @@ namespace PCGameRate.Controllers
                     GameId = r.GameId,
                     GameTitle = r.Game.Title,
                     GameImage = r.Game.Image,
-                    RatingAverage  = r.Game.RatingAverage,
+                    RatingAverage = r.Game.RatingAverage,
                     ReleaseDate = r.Game.ReleaseDate,
                     RatingValue = r.RatingValue,
                     RatingDate = r.RatingDate,
                     Developer = r.Game.Developer.DeveloperName,
                     Genre = r.Game.Genre.GameGenre
-                })
-                .ToListAsync();
+                });
+
+            switch (sortOrder)
+            {
+                case "releaseDate_asc":
+                    ratedGamesQuery = ratedGamesQuery.OrderBy(r => r.ReleaseDate);
+                    break;
+                case "releaseDate_desc":
+                    ratedGamesQuery = ratedGamesQuery.OrderByDescending(r => r.ReleaseDate);
+                    break;
+                case "rating_asc":
+                    ratedGamesQuery = ratedGamesQuery.OrderBy(r => r.RatingAverage);
+                    break;
+                case "rating_desc":
+                    ratedGamesQuery = ratedGamesQuery.OrderByDescending(r => r.RatingAverage);
+                    break;
+                case "userRating_asc":
+                    ratedGamesQuery = ratedGamesQuery.OrderBy(r => r.RatingValue);
+                    break;
+                case "userRating_desc":
+                    ratedGamesQuery = ratedGamesQuery.OrderByDescending(r => r.RatingValue);
+                    break;
+                default:
+                    ratedGamesQuery = ratedGamesQuery.OrderByDescending(r => r.RatingDate);
+                    break;
+            }
+
+            var ratedGames = await ratedGamesQuery.ToListAsync();
 
             return View(ratedGames);
         }
+
     }
 }

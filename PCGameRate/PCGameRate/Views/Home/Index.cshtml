@@ -1,17 +1,43 @@
 ﻿@{
     ViewData["Title"] = "PCGameRate";
 }
-<script src="~/js/popular-games.js"></script>
-<link rel="stylesheet" href="~/css/home-games.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+<script src="~/js/popular-games.js"></script>
+<script src="~/js/expected-games.js"></script>
+<script src="~/js/latest-reviews.js"></script>
+<link rel="stylesheet" href="~/css/home-games.css" />
+<link rel="stylesheet" href="~/css/home-reviews.css" />
+
+
+<!-- Популярні ігри -->
 <h2>Популярні ігри</h2>
 <div class="swiper mySwiper">
     <div class="swiper-wrapper" id="carouselContent"></div>
-
-  
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
 </div>
+
+<!-- Очікувані ігри -->
+<h2>Очікувані ігри</h2>
+<div class="swiper mySwiperExpected">
+    <div class="swiper-wrapper" id="expectedCarouselContent"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+</div>
+
+
+
+<!-- Останні рецензії -->
+<h2>Останні рецензії</h2>
+<div class="swiper mySwiperReviews">
+    <div class="swiper-wrapper" id="reviewsCarouselContent"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+</div>
+
+

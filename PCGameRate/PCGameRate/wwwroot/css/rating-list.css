@@ -1,3 +1,35 @@
 ﻿.game-item {
     background: #e3f2fd;
 }
+.dropdown-toggle {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease; /* Плавний перехід кольору */
+}
+
+.dropdown-toggle:hover {
+    background-color: #0056b3; /* темніший голубий колір */
+}
+
+/* Стиль для випадаючого меню */
+
+
+/* Стиль для елементів списку в меню */
+.dropdown-item {
+    padding: 10px 20px;
+    color: #000; /* чорний колір тексту */
+    transition: background-color 0.3s ease; /* Плавний перехід кольору */
+}
+
+    /* Стиль при наведенні на елемент */
+    .dropdown-item:hover {
+        background-color: #b0e0e6; 
+        color: #000; 
+    }
+
+/* Кнопка відсвічує при наведенні на елемент випадаючого меню */
+.dropdown-menu .dropdown-item:hover ~ .dropdown-toggle {
+    background-color: #b0e0e6 !important; /* світло-голубий фон */
+    color: #000 !important; /* чорний текст */
+}
