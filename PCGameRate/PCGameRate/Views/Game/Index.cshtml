@@ -5,8 +5,8 @@
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" style="width:1400px">
         @foreach (var game in Model.Games)
         {
-            <div class="col">
-                <div class="card shadow-sm rounded-3 game-item" style="overflow: hidden; border: none; height: 100% width: 315px;">
+            <div class="col" style="width: 329px;">
+                <div class="card shadow-sm rounded-3 game-item" style="overflow: hidden; border: none; height: 100%">
                     <img class="card-img-top" src="@game.Image" alt="@game.Title">
 
                     <div class="card-body">

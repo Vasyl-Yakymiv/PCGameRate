@@ -5,6 +5,10 @@
     var existingRating = ViewBag.ExistingRating as int?;
 }
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<script src="~/js/rate-game.js"></script>
+<link rel="stylesheet" href="~/css/rate.css" />
+
 <div class="container">
     <h1>Оцінка гри: @Model.Title</h1>
 
@@ -25,28 +29,44 @@
         @Html.AntiForgeryToken()
         <input type="hidden" name="gameId" value="@Model.GameId" />
 
-        <div class="rating-buttons">
+        <div class="rating-stars" id="ratingStars">
             @for (int i = 1; i <= 10; i++)
             {
-                <button type="submit" name="ratingValue" value="@i" class="btn btn-primary mx-1">
-                    @i
-                </button>
+                <span class="star" data-value="@i"><i class="fas fa-star"></i></span>
             }
         </div>
+
+        <input type="hidden" id="selectedRating" name="ratingValue" value="@existingRating" />
+
+        <button type="submit" class="btn btn-primary">Оцінити</button>
     </form>
 </div>
 
 <style>
-    .rating-buttons {
+    .rating-stars {
         display: flex;
-        gap: 10px;
+        gap: 5px;
         justify-content: center;
-        margin-top: 20px;
+        font-size: 40px;
+        cursor: pointer;
     }
 
+    .star {
+        color: #ccc; /* Порожні зірки */
+    }
+
+        .star.filled {
+            color: gold; /* Заповнені зірки */
+        }
+
+        .star.hover {
+            color: lightgoldenrodyellow; /* Підсвічування при наведенні */
+        }
+
     .btn {
-        padding: 10px 20px;
-        font-size: 16px;
-        border-radius: 5px;
+        margin-top: 20px;
     }
 </style>
+
+
+

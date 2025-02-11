@@ -1,33 +1,63 @@
-﻿@model IEnumerable<Game>
+﻿@model IEnumerable<dynamic>
 <link rel="stylesheet" href="~/css/top100.css" />
 
 <h2>Топ 100 ігор</h2>
-
-@if (Model.Any())
-{
-    <div class="top-games">
-        @{
-            int rank = 1;
-        } 
-        @foreach (var game in Model)
-        {
-            <div class="game-item">
-                <span class="rank">#@rank</span>
-                <img src="@game.Image" alt="@game.Title" class="game-image" />
-                <div class="game-info">
-                    <h3>@game.Title</h3>
-                    <p>⭐ <strong>@game.RatingAverage?.ToString("0.0")</strong></p>
-                    <p>Голосів: <strong>@game.RatingCount</strong></p>
-                    <a href="@Url.Action("Detail", "Game", new { id = game.GameId })" class="btn btn-outline-info btn-sm">
-                        <i class="bi bi-eye"></i> Перейти до гри
-                    </a>
-                </div>
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="dropdown" style="margin-left: 140px">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="border: none">
+                    Сортувати за
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="@Url.Action("Top100", "Game", new { sortOrder = "rating_asc" })">Рейтинг гри (за зростанням)</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("Top100", "Game", new { sortOrder = "rating_desc" })">Рейтинг гри (за спаданням)</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("Top100", "Game", new { sortOrder = "releaseDate_asc" })">Дата релізу (за зростанням)</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("Top100", "Game", new { sortOrder = "releaseDate_desc" })">Дата релізу (за спаданням)</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("Top100", "Game", new { sortOrder = "votes_asc" })">Кількість голосів (за зростанням)</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("Top100", "Game", new { sortOrder = "votes_desc" })">Кількість голосів (за спаданням)</a></li>
+                </ul>
             </div>
-            rank++;
-        }
+        </div>
     </div>
-}
-else
-{
-    <p>У цьому рейтингу ще немає ігор.</p>
-}
+
+    @if (Model.Any())
+    {
+        <div class="top-games">
+
+            @foreach (var game in Model)
+            {
+                <a href="@Url.Action("Detail", "Game", new { id = game.GameId })" class="game-item">
+                    <span class="rank">#@game.Rank</span>
+                    <img src="@game.Image" alt="@game.Title" class="game-image" />
+                    <div class="game-info">
+                        <h3>@game.Title</h3>
+                        <p>⭐ <strong>@game.RatingAverage?.ToString("0.0")</strong></p>
+                        <p>Голосів: <strong>@game.RatingCount</strong></p>
+                        <p>📅 <strong>@game.ReleaseDate</strong></p>
+                    </div>
+                </a>
+            }
+        </div>
+    }
+    else
+    {
+        <p>У цьому рейтингу ще немає ігор.</p>
+    }
+</div>
+
+<style>
+    .dropdown-item:hover {
+        background-color: #4682B4;
+        color: #000;
+    }
+</style>
+
+
+<script>
+    document.getElementById("sortOrder").addEventListener("change", function () {
+        var selectedSort = this.value;
+        window.location.href = '@Url.Action("Top100", "Game")' + '?sortOrder=' + selectedSort;
+    });
+</script>
+

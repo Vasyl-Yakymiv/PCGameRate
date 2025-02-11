@@ -81,7 +81,8 @@ namespace PCGameRate.Controllers
             var newUser = new User()
             {
                 Email = registerViewModel.EmailAddress,
-                UserName = registerViewModel.EmailAddress
+                UserName = registerViewModel.EmailAddress,
+                FullName = registerViewModel.EmailAddress
             };
             var newUserResponse = await _userManager.CreateAsync(newUser, registerViewModel.Password);
 
@@ -121,7 +122,7 @@ namespace PCGameRate.Controllers
 
             var model = new ProfileViewModel
             {
-                FullName = user.UserName,
+                FullName = user.FullName,
                 ProfileImageUrl = user.ProfileImageUrl
             };
 
@@ -139,11 +140,11 @@ namespace PCGameRate.Controllers
                     return RedirectToAction("Login", "Account");
                 }
 
-                user.UserName = model.FullName;
+                user.FullName = model.FullName;
 
                 if (!string.IsNullOrEmpty(model.ProfileImageUrl))
                 {
-                    
+
                     if (Uri.IsWellFormedUriString(model.ProfileImageUrl, UriKind.Absolute))
                     {
                         user.ProfileImageUrl = model.ProfileImageUrl;

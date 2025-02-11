@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "o0OzIEbL01RqO8xHAVVjkpdTnjcukBt034g3m5ZSM1s=",
+  "Hash": "KQ9zYvfPdVJd9592NZXFHAY35cCKsy8ChltOGfqSS74=",
   "Source": "PCGameRate",
   "BasePath": "_content/PCGameRate",
   "Mode": "Default",
@@ -186,6 +186,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\profile.css"
+    },
+    {
+      "Identity": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\rate-game.css",
+      "SourceId": "PCGameRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\",
+      "BasePath": "_content/PCGameRate",
+      "RelativePath": "css/rate-game.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\rate-game.css"
     },
     {
       "Identity": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\rating-list.css",
@@ -395,6 +414,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\popular-games.js"
+    },
+    {
+      "Identity": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\js\\rate-game.js",
+      "SourceId": "PCGameRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\",
+      "BasePath": "_content/PCGameRate",
+      "RelativePath": "js/rate-game.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\rate-game.js"
     },
     {
       "Identity": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\js\\search.js",

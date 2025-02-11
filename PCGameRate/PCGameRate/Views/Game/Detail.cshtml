@@ -28,7 +28,7 @@
                             <span>Не оцінено</span>
                         }
                     </h3>
-                    <a asp-action="RateGame" asp-controller="Rating" asp-route-gameId="@Model.GameId" class="btn btn-success">
+                    <a asp-action="RateGame" asp-controller="Rating" asp-route-gameId="@Model.GameId" class="btn btn-success" style="border:none;">
                         Оцінити гру
                     </a>
                 </div>
@@ -78,7 +78,7 @@
     @if (User.Identity.IsAuthenticated)
     {
         <div>
-            <a asp-action="Create" asp-controller="Review" asp-route-gameId="@Model.GameId" class="btn btn-success mb-5">Написати рецензію</a>
+            <a asp-action="Create" asp-controller="Review" asp-route-gameId="@Model.GameId" class="btn btn-success mb-5" style="border:none;">Написати рецензію</a>
         </div>
     }
 
@@ -89,7 +89,7 @@
         {
             <div class="review" style="background: #e3f2fd;">
                 <p class="review-header">
-                    <strong>@review.User.UserName</strong> - @review.DatePosted?.ToString("dd.MM.yyyy")
+                    <strong>@review.User.FullName</strong> - @review.DatePosted?.ToString("dd.MM.yyyy")
                 </p>
                 <p class="review-text" style="white-space: pre-wrap; word-wrap: break-word;max-width: 100%;">@review.ReviewText</p>
                 @if (User.IsInRole("admin"))

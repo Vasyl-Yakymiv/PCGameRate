@@ -18,18 +18,21 @@ h2 {
 
 .game-item {
     display: flex;
+    text-decoration: none;
+    color: inherit;
     align-items: center;
     width: 95%;
     max-width: 1000px;
     padding: 20px;
     border-radius: 12px;
-    background: #e3f2fd; 
+    background: #e3f2fd;
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
 }
 
     .game-item:hover {
         transform: scale(1.02);
+        text-decoration: none;
     }
 
 .rank {
@@ -80,3 +83,46 @@ h2 {
 img {
    width: 200px;
 }
+a {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.btn-secondary {
+    background-color: #0D6EFD;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+    .btn-secondary:hover {
+        background-color: #1565c0;
+        color: white;
+    }
+
+
+.dropdown-menu {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #e3f2fd;
+    padding: 0;
+    margin-top: 5px;
+}
+
+.dropdown-item {
+    padding: 12px 20px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #000;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+    .dropdown-item:hover {
+        background-color: #4682B4;
+        color: #000;
+        cursor: pointer;
+    }

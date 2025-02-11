@@ -173,19 +173,6 @@ namespace PCGameRate.Controllers
         }
 
         [HttpGet]
-        public async  Task<IActionResult> Top100()
-        {
-            var topGames = await _gameRepo.GetTop100();
-
-            if (topGames == null)
-            {
-                return View("Error");
-            }
-
-            return View(topGames);
-        }
-
-        [HttpGet]
         public async Task<IActionResult> SearchSuggestions(string query)
         {
             if (string.IsNullOrWhiteSpace(query))
@@ -264,12 +251,65 @@ namespace PCGameRate.Controllers
                     r.Game.GameId,
                     r.Game.Title,
                     r.Game.Image, 
-                    r.User.UserName, 
+                    r.User.FullName,
                     r.ReviewText
                 })
                 .ToListAsync();
 
             return Json(latestReviews);
+        }
+
+        [HttpGet]
+        public IActionResult Top100(string sortOrder)
+        {
+            var games = _context.Games
+                .Where(g => g.RatingCount >= 1000) 
+                .AsQueryable();
+
+            
+            var topGames = games
+                .OrderByDescending(g => g.RatingAverage) 
+                .ThenByDescending(g => g.RatingCount)
+                .Take(100)
+                .ToList();
+
+            var rankedGames = topGames.Select((game, index) => new
+            {
+                game.GameId,
+                game.Title,
+                game.RatingAverage,
+                game.RatingCount,
+                game.Image,
+                game.ReleaseDate,
+                Rank = index + 1
+            }).ToList();
+
+            switch (sortOrder)
+            {
+                case "rating_asc":
+                    rankedGames = rankedGames.OrderBy(g => g.RatingAverage).ToList();
+                    break;
+                case "rating_desc":
+                    rankedGames = rankedGames.OrderByDescending(g => g.RatingAverage).ToList();
+                    break;
+                case "releaseDate_asc":
+                    rankedGames = rankedGames.OrderBy(g => g.ReleaseDate).ToList();
+                    break;
+                case "releaseDate_desc":
+                    rankedGames = rankedGames.OrderByDescending(g => g.ReleaseDate).ToList();
+                    break;
+                case "votes_asc":
+                    rankedGames = rankedGames.OrderBy(g => g.RatingCount).ToList();
+                    break;
+                case "votes_desc":
+                    rankedGames = rankedGames.OrderByDescending(g => g.RatingCount).ToList();
+                    break;
+                default:
+                    rankedGames = rankedGames.OrderByDescending(g => g.RatingAverage).ToList();
+                    break;
+            }
+
+            return View(rankedGames);
         }
 
 

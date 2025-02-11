@@ -7,6 +7,7 @@ namespace PCGameRate.Models
     {
    
         public string? ProfileImageUrl { get; set; }
+        public string? FullName { get; set; }
         public ICollection<Review> Reviews { get; set; }
 
     }

@@ -15,7 +15,7 @@
                                 <img src="${review.image}" alt="${review.title}" class="game-image">
                             </a>
                             <div class="review-info">
-                                <p class="username">✍ ${review.userName}</p>
+                                <p class="fullname">✍ ${review.fullName}</p>
                                 <p class="review-text">${review.reviewText.length > 150 ? review.reviewText.substring(0, 150) + '...' : review.reviewText}</p>
                             </div>
                         </div>

@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\css\\profile.css"
     },
     {
+      "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\rate-game.css",
+      "PackagePath": "staticwebassets\\css\\rate-game.css"
+    },
+    {
       "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\rating-list.css",
       "PackagePath": "staticwebassets\\css\\rating-list.css"
     },
@@ -75,6 +79,10 @@
     {
       "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\js\\popular-games.js",
       "PackagePath": "staticwebassets\\js\\popular-games.js"
+    },
+    {
+      "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\js\\rate-game.js",
+      "PackagePath": "staticwebassets\\js\\rate-game.js"
     },
     {
       "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\js\\search.js",

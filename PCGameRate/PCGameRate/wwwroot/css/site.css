@@ -215,4 +215,7 @@ img {
     .suggestion-item a:hover {
         background: #87ceeb;
     }
-
+a {
+    text-decoration: none;
+    color: inherit;
+}
