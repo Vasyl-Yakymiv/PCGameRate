@@ -2,17 +2,24 @@
 @model RegisterViewModel
 @{
     ViewData["Title"] = "Реєстрація";
+    ViewData["HideHeader"] = true; 
 }
+
 <head>
-    <link rel="stylesheet" href="~/css/register.css" />
+    <link rel="stylesheet" href="~/css/auth.css" />
+    <style>
+        header {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <div class="register-container">
+    <div class="login-container" style="margin-top: 15px;">
         <h4>Реєстрація акаунта</h4>
         @if (TempData["Error"] != null)
         {
             <div class="alert alert-danger">
-                <span><b>Sorry!</b> - @TempData["Error"]</span>
+                <span><b>Вибачте!</b> - @TempData["Error"]</span>
             </div>
         }
         <form asp-action="Register">
@@ -25,17 +32,24 @@
             </div>
             <div class="form-group">
                 <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
+                <input asp-for="Password" type="password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ConfirmPassword" class="control-label"></label>
-                <input asp-for="ConfirmPassword" class="form-control" />
+                <input asp-for="ConfirmPassword" type="password" class="form-control" />
                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 5px;">
+                <a asp-action="Login" asp-controller="Account" class="auth-link">Вже є акаунт?</a>
             </div>
 
             <div class="form-group">
                 <input class="btn btn-outline-secondary" type="submit" value="Створити акаунт" />
+            </div>
+
+            <div class="form-group">
                 <a class="btn btn-outline-secondary" asp-controller="Home" asp-action="Index">Скасувати</a>
             </div>
         </form>

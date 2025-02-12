@@ -1,13 +1,19 @@
-﻿@using PCGameRate.ViewModels.Account
+﻿﻿@using PCGameRate.ViewModels.Account
 @model LoginViewModel
 @{
     ViewData["Title"] = "Вхід";
+    ViewData["HideHeader"] = true; 
 }
 <head>
-    <link rel="stylesheet" href="~/css/login.css" />
+    <link rel="stylesheet" href="~/css/auth.css"/>
+    <style>
+        header {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <div class="login-container">
+    <div class="login-container" style="margin-top: 15px;">
         <h4>Вхід до вашого акаунта</h4>
         @if (TempData["Error"] != null)
         {

@@ -13,17 +13,15 @@
      <div class="top-games">
         @foreach (var game in Model)
         {
-            <div class="game-item">
+            <a href="@Url.Action("Detail", "Game", new { id = game.GameId })" class="game-item">
                 <img src="@game.Image" alt="@game.Title" class="game-image" />
                 <div class="game-info">
                     <h3>@game.Title</h3>
-                    <p>Оцінка: <strong>@game.RatingAverage?.ToString("0.0")</strong></p>
+                    <p>⭐ <strong>@game.RatingAverage?.ToString("0.0")</strong></p>
                     <p>Голосів: <strong>@game.RatingCount</strong></p>
-                    <a href="@Url.Action("Detail", "Game", new { id = game.GameId })" class="btn btn-outline-info btn-sm">
-                        <i class="bi bi-eye"></i> Перейти до гри
-                    </a>
+                    <p>📅 <strong>@game.ReleaseDate</strong></p>
                 </div>
-            </div>
+            </a>
         }
     </div>
 }

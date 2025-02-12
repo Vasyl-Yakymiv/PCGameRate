@@ -12,7 +12,7 @@
                             </a>
                             <div class="game-info">
                                 <h5 class="title">${game.title}</h5>
-                                <p>⭐ ${game.ratingAverage} | 📅 ${game.releaseYear}</p>
+                                <p>📅 ${game.releaseYear}</p>
                             </div>
                         </div>
                     </div>

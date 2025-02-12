@@ -23,14 +23,14 @@ namespace PCGameRate.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(int page = 1)
         {
-            int pageSize = 20; 
-            int totalGames = await _context.Games.CountAsync(); 
+            int pageSize = 20;
+            int totalGames = await _context.Games.CountAsync();
             int totalPages = (int)Math.Ceiling((double)totalGames / pageSize);
             if (totalGames == 0)
             {
                 return View(new GameListViewModel
                 {
-                    Games = new List<Game>(), 
+                    Games = new List<Game>(),
                     CurrentPage = 1,
                     TotalPages = 1
                 });
@@ -40,7 +40,7 @@ namespace PCGameRate.Controllers
                 .Include(x => x.Genre)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
-                .ToListAsync(); 
+                .ToListAsync();
 
             var viewModel = new GameListViewModel
             {
@@ -72,7 +72,9 @@ namespace PCGameRate.Controllers
                 ReleaseDate = gameVM.ReleaseDate,
                 Genre = gameVM.Genre,
                 Developer = gameVM.Developer,
-                RatingAverage = gameVM.RatingAverage   
+                RatingAverage = gameVM.RatingAverage,
+                IsPopular = gameVM.IsPopular,
+                IsExpected = gameVM.IsExpected
             };
             _gameRepo.Add(game);
             return RedirectToAction("Index");
@@ -93,7 +95,8 @@ namespace PCGameRate.Controllers
                 RatingAverage = game.RatingAverage,
                 RatingCount = game.RatingCount,
                 Developer = game.Developer,
-                IsPopular = (bool)game.IsPopular
+                IsPopular = (bool)game.IsPopular,
+                IsExpected = (bool)game.IsExpected
             };
             return View(gameVM);
         }
@@ -124,15 +127,16 @@ namespace PCGameRate.Controllers
                 Genre = gameVM.Genre,
                 Developer = gameVM.Developer,
                 RatingAverage = gameVM.RatingAverage,
-                RatingCount= gameVM.RatingCount,
-                IsPopular = gameVM.IsPopular
-                
+                RatingCount = gameVM.RatingCount,
+                IsPopular = gameVM.IsPopular,
+                IsExpected = gameVM.IsExpected
+
             };
 
             _gameRepo.Update(game);
             return RedirectToAction("Index");
         }
-        
+
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
@@ -146,13 +150,13 @@ namespace PCGameRate.Controllers
         {
             var game = await _gameRepo.GetByIdAsync(id);
 
-            if (game== null)
+            if (game == null)
             {
                 return View("Error");
             }
 
             _gameRepo.Delete(game);
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
@@ -161,12 +165,12 @@ namespace PCGameRate.Controllers
             var game = await _gameRepo.GetWithReviewAndScreenshotsByIdAsync(id);
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-          
+
             var userRating = await _context.Ratings
                 .Where(r => r.GameId == id && r.Id == userId)
                 .Select(r => r.RatingValue)
                 .FirstOrDefaultAsync();
-            
+
             ViewBag.UserRating = userRating;
 
             return game == null ? NotFound() : View(game);
@@ -180,17 +184,17 @@ namespace PCGameRate.Controllers
                 return Json(new { results = new List<object>() });
             }
 
-                var games = await _context.Games
-                .Where(g => g.Title.Contains(query))
-                .Select(g => new
-                {
+            var games = await _context.Games
+            .Where(g => g.Title.Contains(query))
+            .Select(g => new
+            {
                 g.GameId,
                 g.Title,
                 g.Image,
                 RatingAverage = g.RatingAverage.HasValue ? g.RatingAverage.Value.ToString("0.0") : "0.0"
-                })
-                .Take(5)
-                .ToListAsync();
+            })
+            .Take(5)
+            .ToListAsync();
 
             return Json(new { results = games });
         }
@@ -233,7 +237,6 @@ namespace PCGameRate.Controllers
                     g.GameId,
                     g.Title,
                     g.Image,
-                    RatingAverage = g.RatingAverage.HasValue ? g.RatingAverage.Value.ToString("0.0") : "0.0",
                     ReleaseYear = g.ReleaseDate
                 })
                 .ToListAsync();
@@ -244,13 +247,13 @@ namespace PCGameRate.Controllers
         public async Task<IActionResult> GetLatestReviews()
         {
             var latestReviews = await _context.Reviews
-                .OrderByDescending(r => r.DatePosted) 
+                .OrderByDescending(r => r.DatePosted)
                 .Take(20)
                 .Select(r => new
                 {
                     r.Game.GameId,
                     r.Game.Title,
-                    r.Game.Image, 
+                    r.Game.Image,
                     r.User.FullName,
                     r.ReviewText
                 })
@@ -262,13 +265,14 @@ namespace PCGameRate.Controllers
         [HttpGet]
         public IActionResult Top100(string sortOrder)
         {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var games = _context.Games
-                .Where(g => g.RatingCount >= 1000) 
+                .Where(g => g.RatingCount >= 1000)
                 .AsQueryable();
 
-            
+
             var topGames = games
-                .OrderByDescending(g => g.RatingAverage) 
+                .OrderByDescending(g => g.RatingAverage)
                 .ThenByDescending(g => g.RatingCount)
                 .Take(100)
                 .ToList();
@@ -281,7 +285,11 @@ namespace PCGameRate.Controllers
                 game.RatingCount,
                 game.Image,
                 game.ReleaseDate,
-                Rank = index + 1
+                Rank = index + 1,
+                UserRating = _context.Ratings
+                          .Where(r => r.GameId == game.GameId && r.Id == userId)
+                          .Select(r => r.RatingValue)
+                          .FirstOrDefault()
             }).ToList();
 
             switch (sortOrder)
@@ -313,7 +321,23 @@ namespace PCGameRate.Controllers
         }
 
 
-    }
 
+        [HttpGet]
+        public async Task<IActionResult> GetRatingStats(int gameId)
+        {
+            var ratingStats = await _context.Ratings
+                .Where(r => r.GameId == gameId)
+                .GroupBy(r => r.RatingValue)
+                .Select(g => new
+                {
+                    RatingValue = g.Key,
+                    Count = g.Count()
+                })
+                .OrderBy(r => r.RatingValue)
+                .ToListAsync();
+
+            return Json(ratingStats);
+        }
+    }
 }
 
