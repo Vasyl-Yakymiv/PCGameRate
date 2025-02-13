@@ -3,6 +3,78 @@
   "WorkspaceRootPath": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\repository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\repository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\views\\account\\recommendations.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\views\\account\\recommendations.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\views\\game\\top100.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\views\\game\\top100.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\wwwroot\\css\\recommendations.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\wwwroot\\css\\recommendations.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\wwwroot\\css\\top100.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\wwwroot\\css\\top100.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\repository\\gamerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\repository\\gamerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\views\\rating\\ratinglist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\views\\rating\\ratinglist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\models\\rating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\models\\rating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\controllers\\ratingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\controllers\\ratingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\models\\genre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\models\\genre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\models\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\models\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\views\\game\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\views\\game\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\views\\game\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\views\\game\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\interfaces\\igamerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\interfaces\\igamerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\interfaces\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\interfaces\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\views\\rating\\rategame.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\views\\rating\\rategame.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -11,16 +83,8 @@
       "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\models\\rating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\models\\rating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\wwwroot\\js\\expected-games.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\wwwroot\\js\\expected-games.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\models\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\models\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\wwwroot\\js\\popular-games.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -29,10 +93,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\views\\game\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\views\\game\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\views\\game\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -51,14 +111,6 @@
       "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\views\\game\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\views\\game\\top100.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\views\\game\\top100.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\views\\rating\\ratinglist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\views\\rating\\ratinglist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\wwwroot\\css\\auth.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\wwwroot\\css\\auth.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
@@ -73,10 +125,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|solutionrelative:pcgamerate\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{246A65B1-0B07-4ECE-A610-C8DC7232CD89}|PCGameRate\\PCGameRate.csproj|c:\\users\\kynguat\\pcgamerate\\pcgamerate\\pcgamerate\\pcgamerate\\views\\game\\searchresults.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -94,87 +142,102 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "recommendations.css",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\recommendations.css",
+              "RelativeDocumentMoniker": "PCGameRate\\wwwroot\\css\\recommendations.css",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\recommendations.css",
+              "RelativeToolTip": "PCGameRate\\wwwroot\\css\\recommendations.css",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAqwFwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-02-13T13:39:43.889Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "top100.css",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\top100.css",
+              "RelativeDocumentMoniker": "PCGameRate\\wwwroot\\css\\top100.css",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\top100.css",
+              "RelativeToolTip": "PCGameRate\\wwwroot\\css\\top100.css",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAAFgAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-02-13T13:39:22.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "GameController.cs",
-              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Controllers\\GameController.cs",
-              "RelativeDocumentMoniker": "PCGameRate\\Controllers\\GameController.cs",
-              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Controllers\\GameController.cs",
-              "RelativeToolTip": "PCGameRate\\Controllers\\GameController.cs",
-              "ViewState": "AQIAAD0BAAAAAAAAAAAQwFUBAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T11:49:36.224Z",
+              "Title": "Recommendations.cshtml",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Account\\Recommendations.cshtml",
+              "RelativeDocumentMoniker": "PCGameRate\\Views\\Account\\Recommendations.cshtml",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Account\\Recommendations.cshtml",
+              "RelativeToolTip": "PCGameRate\\Views\\Account\\Recommendations.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-13T12:39:02.2Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RateGame.cshtml",
-              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Rating\\RateGame.cshtml",
-              "RelativeDocumentMoniker": "PCGameRate\\Views\\Rating\\RateGame.cshtml",
-              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Rating\\RateGame.cshtml",
-              "RelativeToolTip": "PCGameRate\\Views\\Rating\\RateGame.cshtml",
-              "ViewState": "AQIAAFEAAAAAAAAAAAAQwJIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-12T14:22:03.278Z",
+              "Title": "AccountRepository.cs",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Repository\\AccountRepository.cs",
+              "RelativeDocumentMoniker": "PCGameRate\\Repository\\AccountRepository.cs",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Repository\\AccountRepository.cs",
+              "RelativeToolTip": "PCGameRate\\Repository\\AccountRepository.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAQwBMAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T12:32:53.552Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "expected-games.js",
-              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\js\\expected-games.js",
-              "RelativeDocumentMoniker": "PCGameRate\\wwwroot\\js\\expected-games.js",
-              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\js\\expected-games.js",
-              "RelativeToolTip": "PCGameRate\\wwwroot\\js\\expected-games.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-02-12T13:39:11.337Z",
+              "DocumentIndex": 2,
+              "Title": "Top100.cshtml",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Game\\Top100.cshtml",
+              "RelativeDocumentMoniker": "PCGameRate\\Views\\Game\\Top100.cshtml",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Game\\Top100.cshtml",
+              "RelativeToolTip": "PCGameRate\\Views\\Game\\Top100.cshtml",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAADwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-12T10:44:45.326Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "PCGameRate\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "PCGameRate\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
+              "Title": "RatingList.cshtml",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Rating\\RatingList.cshtml",
+              "RelativeDocumentMoniker": "PCGameRate\\Views\\Rating\\RatingList.cshtml",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Rating\\RatingList.cshtml",
+              "RelativeToolTip": "PCGameRate\\Views\\Rating\\RatingList.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-12T13:40:53.353Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Game.cs",
-              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Models\\Game.cs",
-              "RelativeDocumentMoniker": "PCGameRate\\Models\\Game.cs",
-              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Models\\Game.cs",
-              "RelativeToolTip": "PCGameRate\\Models\\Game.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T11:51:19.342Z",
+              "WhenOpened": "2025-02-12T11:54:43.89Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Game\\Edit.cshtml",
-              "RelativeDocumentMoniker": "PCGameRate\\Views\\Game\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Game\\Edit.cshtml",
-              "RelativeToolTip": "PCGameRate\\Views\\Game\\Edit.cshtml",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAADQAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-12T13:17:27.264Z"
+              "DocumentIndex": 5,
+              "Title": "GameRepository.cs",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Repository\\GameRepository.cs",
+              "RelativeDocumentMoniker": "PCGameRate\\Repository\\GameRepository.cs",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Repository\\GameRepository.cs",
+              "RelativeToolTip": "PCGameRate\\Repository\\GameRepository.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAACgAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T12:33:45.963Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "Rating.cs",
               "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Models\\Rating.cs",
               "RelativeDocumentMoniker": "PCGameRate\\Models\\Rating.cs",
@@ -187,7 +250,186 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "PCGameRate\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "PCGameRate\\Controllers\\AccountController.cs",
+              "ViewState": "AQIAAK0AAAAAAAAAAAAQwMAAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T12:20:59.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IGameRepository.cs",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Interfaces\\IGameRepository.cs",
+              "RelativeDocumentMoniker": "PCGameRate\\Interfaces\\IGameRepository.cs",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Interfaces\\IGameRepository.cs",
+              "RelativeToolTip": "PCGameRate\\Interfaces\\IGameRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T12:32:07.516Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RatingController.cs",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Controllers\\RatingController.cs",
+              "RelativeDocumentMoniker": "PCGameRate\\Controllers\\RatingController.cs",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Controllers\\RatingController.cs",
+              "RelativeToolTip": "PCGameRate\\Controllers\\RatingController.cs",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAFkAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T13:20:14.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Game\\Detail.cshtml",
+              "RelativeDocumentMoniker": "PCGameRate\\Views\\Game\\Detail.cshtml",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Game\\Detail.cshtml",
+              "RelativeToolTip": "PCGameRate\\Views\\Game\\Detail.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAE8AAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-12T13:14:39.056Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Program.cs",
+              "RelativeDocumentMoniker": "PCGameRate\\Program.cs",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Program.cs",
+              "RelativeToolTip": "PCGameRate\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T12:38:15.05Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 10,
+              "Title": "Genre.cs",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Models\\Genre.cs",
+              "RelativeDocumentMoniker": "PCGameRate\\Models\\Genre.cs",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Models\\Genre.cs",
+              "RelativeToolTip": "PCGameRate\\Models\\Genre.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T13:08:30.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Game.cs",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Models\\Game.cs",
+              "RelativeDocumentMoniker": "PCGameRate\\Models\\Game.cs",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Models\\Game.cs",
+              "RelativeToolTip": "PCGameRate\\Models\\Game.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T11:51:19.342Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Game\\Index.cshtml",
+              "RelativeDocumentMoniker": "PCGameRate\\Views\\Game\\Index.cshtml",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Game\\Index.cshtml",
+              "RelativeToolTip": "PCGameRate\\Views\\Game\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-13T12:43:21.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IAccountRepository.cs",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Interfaces\\IAccountRepository.cs",
+              "RelativeDocumentMoniker": "PCGameRate\\Interfaces\\IAccountRepository.cs",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Interfaces\\IAccountRepository.cs",
+              "RelativeToolTip": "PCGameRate\\Interfaces\\IAccountRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T12:32:04.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "RateGame.cshtml",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Rating\\RateGame.cshtml",
+              "RelativeDocumentMoniker": "PCGameRate\\Views\\Rating\\RateGame.cshtml",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Rating\\RateGame.cshtml",
+              "RelativeToolTip": "PCGameRate\\Views\\Rating\\RateGame.cshtml",
+              "ViewState": "AQIAAGcAAAAAAAAAAAAAAHoAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-12T14:22:03.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "expected-games.js",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\js\\expected-games.js",
+              "RelativeDocumentMoniker": "PCGameRate\\wwwroot\\js\\expected-games.js",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\js\\expected-games.js",
+              "RelativeToolTip": "PCGameRate\\wwwroot\\js\\expected-games.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-12T13:39:11.337Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "PCGameRate\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "PCGameRate\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-12T13:40:53.353Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Game\\Edit.cshtml",
+              "RelativeDocumentMoniker": "PCGameRate\\Views\\Game\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Game\\Edit.cshtml",
+              "RelativeToolTip": "PCGameRate\\Views\\Game\\Edit.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAADQAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-12T13:17:27.264Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "PCGameRate\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "PCGameRate\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAD0AAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-12T11:09:10.942Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
               "Title": "EditGameViewModel.cs",
               "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\ViewModels\\Game\\EditGameViewModel.cs",
               "RelativeDocumentMoniker": "PCGameRate\\ViewModels\\Game\\EditGameViewModel.cs",
@@ -199,7 +441,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 19,
+              "Title": "GameController.cs",
+              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Controllers\\GameController.cs",
+              "RelativeDocumentMoniker": "PCGameRate\\Controllers\\GameController.cs",
+              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Controllers\\GameController.cs",
+              "RelativeToolTip": "PCGameRate\\Controllers\\GameController.cs",
+              "ViewState": "AQIAAD0BAAAAAAAAAAAQwFUBAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T11:49:36.224Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
               "Title": "popular-games.js",
               "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\js\\popular-games.js",
               "RelativeDocumentMoniker": "PCGameRate\\wwwroot\\js\\popular-games.js",
@@ -207,12 +461,11 @@
               "RelativeToolTip": "PCGameRate\\wwwroot\\js\\popular-games.js",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-02-12T13:42:05.313Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-12T13:42:05.313Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 24,
               "Title": "CreateGameViewModel.cs",
               "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\ViewModels\\Game\\CreateGameViewModel.cs",
               "RelativeDocumentMoniker": "PCGameRate\\ViewModels\\Game\\CreateGameViewModel.cs",
@@ -224,19 +477,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Detail.cshtml",
-              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Game\\Detail.cshtml",
-              "RelativeDocumentMoniker": "PCGameRate\\Views\\Game\\Detail.cshtml",
-              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Game\\Detail.cshtml",
-              "RelativeToolTip": "PCGameRate\\Views\\Game\\Detail.cshtml",
-              "ViewState": "AQIAAEIAAAAAAAAAAAAAAE8AAAA7AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-12T13:14:39.056Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 23,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Game\\Create.cshtml",
               "RelativeDocumentMoniker": "PCGameRate\\Views\\Game\\Create.cshtml",
@@ -248,7 +489,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 32,
               "Title": "20250212132628_UpdateGameModelRemoveNullbleCol.cs",
               "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Migrations\\20250212132628_UpdateGameModelRemoveNullbleCol.cs",
               "RelativeDocumentMoniker": "PCGameRate\\Migrations\\20250212132628_UpdateGameModelRemoveNullbleCol.cs",
@@ -260,7 +501,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 27,
               "Title": "auth.css",
               "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\auth.css",
               "RelativeDocumentMoniker": "PCGameRate\\wwwroot\\css\\auth.css",
@@ -272,31 +513,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Top100.cshtml",
-              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Game\\Top100.cshtml",
-              "RelativeDocumentMoniker": "PCGameRate\\Views\\Game\\Top100.cshtml",
-              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Game\\Top100.cshtml",
-              "RelativeToolTip": "PCGameRate\\Views\\Game\\Top100.cshtml",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAQwCQAAABMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-12T10:44:45.326Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "RatingList.cshtml",
-              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Rating\\RatingList.cshtml",
-              "RelativeDocumentMoniker": "PCGameRate\\Views\\Rating\\RatingList.cshtml",
-              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Rating\\RatingList.cshtml",
-              "RelativeToolTip": "PCGameRate\\Views\\Rating\\RatingList.cshtml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAACMAAAA7AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-12T11:54:43.89Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 29,
               "Title": "Register.cshtml",
               "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "PCGameRate\\Views\\Account\\Register.cshtml",
@@ -308,7 +525,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 30,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "PCGameRate\\Views\\Account\\Login.cshtml",
@@ -320,19 +537,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "PCGameRate\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "PCGameRate\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAABQAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-12T11:09:10.942Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 28,
               "Title": "gameindex.css",
               "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\gameindex.css",
               "RelativeDocumentMoniker": "PCGameRate\\wwwroot\\css\\gameindex.css",
@@ -344,7 +549,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 31,
               "Title": "SearchResults.cshtml",
               "DocumentMoniker": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\Views\\Game\\SearchResults.cshtml",
               "RelativeDocumentMoniker": "PCGameRate\\Views\\Game\\SearchResults.cshtml",

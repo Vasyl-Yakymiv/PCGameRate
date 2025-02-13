@@ -1,9 +1,13 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PCGameRate.Data;
+using PCGameRate.Interfaces;
 using PCGameRate.Models;
 using PCGameRate.ViewModels.Account;
+using PCGameRate.ViewModels.Rating;
+using System.Security.Claims;
 
 namespace PCGameRate.Controllers
 {
@@ -13,14 +17,15 @@ namespace PCGameRate.Controllers
         private readonly SignInManager<User> _signInManager;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly ApplicationDbContext _context;
+        private readonly IAccountRepository _accountRepo;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationDbContext context, IWebHostEnvironment webHostEnvironment, IAccountRepository accountRepo)
         {
             _context = context;
             _signInManager = signInManager;
             _userManager = userManager;
             _webHostEnvironment = webHostEnvironment;
-
+            _accountRepo = accountRepo;
         }
 
         [HttpGet]
@@ -170,6 +175,30 @@ namespace PCGameRate.Controllers
             }
 
             return View("Profile", model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Recommendations()
+        {
+            var userId = User.Identity.Name;
+            var userRatings = await _context.Ratings
+                                            .Where(r => r.User.UserName == userId)
+                                            .ToListAsync();
+            if (userRatings.Count == 0)
+            {
+  
+                var popularGames = await _context.Games
+                                                  .Where(g => g.IsPopular)
+                                                  .Include(i => i.Developer)
+                                                  .Include(x => x.Genre)
+                                                  .Take(10) 
+                                                  .ToListAsync();
+                return View(popularGames); 
+            }
+
+            var recommendedGames = _accountRepo.GetRecommendedGames(userRatings);
+
+            return View(recommendedGames);
         }
     }
 }

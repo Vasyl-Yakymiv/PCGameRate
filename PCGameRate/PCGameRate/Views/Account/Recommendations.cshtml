@@ -1,0 +1,35 @@
+﻿@model List<Game>
+
+<link rel="stylesheet" href="~/css/recommendations.css" />
+
+@if (Model.Any())
+{
+    <div class="top-games">
+
+        @foreach (var game in Model)
+        {
+            <a href="@Url.Action("Detail", "Game", new { id = game.GameId })" class="game-item">
+                <img src="@game.Image" alt="@game.Title" class="game-image" />
+                <div class="game-info">
+                    <h3>@game.Title</h3>
+                    <p>
+                        ⭐ <strong>@game.RatingAverage?.ToString("0.0")  </strong>
+                    <p>Голосів: <strong>@game.RatingCount</strong></p>
+                    <p>📅 <strong>@game.ReleaseDate</strong></p>
+                </div>
+            </a>
+        }
+    </div>
+}
+else
+{
+    <p>Система не змогла підібрати вам рекоменддації</p>
+}
+</div>
+
+<style>
+    .dropdown-item:hover {
+        background-color: #4682B4;
+        color: #000;
+    }
+</style>

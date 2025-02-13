@@ -41,6 +41,10 @@
       "PackagePath": "staticwebassets\\css\\rating-list.css"
     },
     {
+      "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\recommendations.css",
+      "PackagePath": "staticwebassets\\css\\recommendations.css"
+    },
+    {
       "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\css\\review-list.css",
       "PackagePath": "staticwebassets\\css\\review-list.css"
     },
