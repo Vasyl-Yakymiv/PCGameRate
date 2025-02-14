@@ -23,5 +23,6 @@ namespace PCGameRate.Models
         public Genre Genre { get; set; }
         public ICollection<Review> Reviews { get; set; }
         public ICollection<Screenshot> Screenshots { get; set; }
+        public ICollection<GameVideo> GameVideos { get; set; }
     }
 }

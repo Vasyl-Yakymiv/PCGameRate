@@ -59,7 +59,7 @@ namespace PCGameRate.Repository
 
         public async Task<Game?> GetWithReviewAndScreenshotsByIdAsync(int id)
         {
-            return await _context.Games.Include(s => s.Screenshots).Include(g => g.Reviews).ThenInclude(r => r.User).FirstOrDefaultAsync(g => g.GameId == id);
+            return await _context.Games.Include(v => v.GameVideos).Include(s => s.Screenshots).Include(g => g.Reviews).ThenInclude(r => r.User).FirstOrDefaultAsync(g => g.GameId == id);
         }
 
         public bool Save()

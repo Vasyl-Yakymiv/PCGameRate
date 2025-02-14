@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PCGameRate.Data;
 
@@ -11,9 +12,11 @@ using PCGameRate.Data;
 namespace PCGameRate.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250214101833_AddGameVideoModel")]
+    partial class AddGameVideoModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -249,7 +252,7 @@ namespace PCGameRate.Migrations
 
                     b.HasIndex("GameId");
 
-                    b.ToTable("GameVideos");
+                    b.ToTable("GameVideous");
                 });
 
             modelBuilder.Entity("PCGameRate.Models.Genre", b =>
@@ -494,7 +497,7 @@ namespace PCGameRate.Migrations
             modelBuilder.Entity("PCGameRate.Models.GameVideo", b =>
                 {
                     b.HasOne("PCGameRate.Models.Game", "Game")
-                        .WithMany("GameVideos")
+                        .WithMany()
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -545,8 +548,6 @@ namespace PCGameRate.Migrations
 
             modelBuilder.Entity("PCGameRate.Models.Game", b =>
                 {
-                    b.Navigation("GameVideos");
-
                     b.Navigation("Reviews");
 
                     b.Navigation("Screenshots");
