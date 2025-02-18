@@ -2,7 +2,7 @@
     background: #e3f2fd;
 }
 .dropdown-toggle {
-    /*background-color: #007bff;*/
+    
     color: white;
     border: none;
     transition: background-color 0.3s ease;
@@ -18,7 +18,7 @@
     transition: background-color 0.3s ease; 
 }
 
-    /* Стиль при наведенні на елемент */
+   
     .dropdown-item:hover {
         background-color: #b0e0e6; 
         color: #000; 

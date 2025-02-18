@@ -1,6 +1,8 @@
 ﻿@using PCGameRate.ViewModels.Game
 @model EditGameViewModel
-
+@{
+    ViewData["Title"] = "Редагування гри";
+}
 
 <form method="post" asp-action="Edit" enctype="multipart/form-data">
     <input type="hidden" value="GanreId" id="GenreId" />

@@ -309,11 +309,17 @@ namespace PCGameRate.Migrations
                     b.Property<DateTime?>("DatePosted")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Dislikes")
+                        .HasColumnType("int");
+
                     b.Property<int>("GameId")
                         .HasColumnType("int");
 
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Likes")
+                        .HasColumnType("int");
 
                     b.Property<string>("ReviewText")
                         .IsRequired()
@@ -326,6 +332,27 @@ namespace PCGameRate.Migrations
                     b.HasIndex("Id");
 
                     b.ToTable("Reviews");
+                });
+
+            modelBuilder.Entity("PCGameRate.Models.ReviewVote", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("IsLike")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ReviewId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VoteId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReviewId");
+
+                    b.ToTable("ReviewVotes");
                 });
 
             modelBuilder.Entity("PCGameRate.Models.Screenshot", b =>
@@ -419,6 +446,33 @@ namespace PCGameRate.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("PCGameRate.Models.Vote", b =>
+                {
+                    b.Property<int>("VoteId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VoteId"));
+
+                    b.Property<string>("Id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("IsLike")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ReviewId")
+                        .HasColumnType("int");
+
+                    b.HasKey("VoteId");
+
+                    b.HasIndex("Id");
+
+                    b.HasIndex("ReviewId");
+
+                    b.ToTable("Votes");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -534,6 +588,25 @@ namespace PCGameRate.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("PCGameRate.Models.ReviewVote", b =>
+                {
+                    b.HasOne("PCGameRate.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PCGameRate.Models.Review", "Review")
+                        .WithMany()
+                        .HasForeignKey("ReviewId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Review");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("PCGameRate.Models.Screenshot", b =>
                 {
                     b.HasOne("PCGameRate.Models.Game", "Game")
@@ -543,6 +616,25 @@ namespace PCGameRate.Migrations
                     b.Navigation("Game");
                 });
 
+            modelBuilder.Entity("PCGameRate.Models.Vote", b =>
+                {
+                    b.HasOne("PCGameRate.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PCGameRate.Models.Review", "Review")
+                        .WithMany("Votes")
+                        .HasForeignKey("ReviewId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Review");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("PCGameRate.Models.Game", b =>
                 {
                     b.Navigation("GameVideos");
@@ -550,6 +642,11 @@ namespace PCGameRate.Migrations
                     b.Navigation("Reviews");
 
                     b.Navigation("Screenshots");
+                });
+
+            modelBuilder.Entity("PCGameRate.Models.Review", b =>
+                {
+                    b.Navigation("Votes");
                 });
 
             modelBuilder.Entity("PCGameRate.Models.User", b =>

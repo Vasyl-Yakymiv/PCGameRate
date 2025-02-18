@@ -67,6 +67,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.1, )"
+            },
+            "reCAPTCHA.AspNetCore": {
+              "target": "Package",
+              "version": "[3.0.10, )"
             }
           },
           "imports": [

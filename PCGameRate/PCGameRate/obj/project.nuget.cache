@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "pR4W5eZ8g6c=",
+  "dgSpecHash": "UwolQdfvXus=",
   "success": true,
   "projectFilePath": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate.csproj",
   "expectedPackageFiles": [
@@ -54,6 +54,7 @@
     "C:\\Users\\KynguaT\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\KynguaT\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\KynguaT\\.nuget\\packages\\mono.texttemplating\\3.0.0\\mono.texttemplating.3.0.0.nupkg.sha512",
+    "C:\\Users\\KynguaT\\.nuget\\packages\\recaptcha.aspnetcore\\3.0.10\\recaptcha.aspnetcore.3.0.10.nupkg.sha512",
     "C:\\Users\\KynguaT\\.nuget\\packages\\system.clientmodel\\1.0.0\\system.clientmodel.1.0.0.nupkg.sha512",
     "C:\\Users\\KynguaT\\.nuget\\packages\\system.codedom\\6.0.0\\system.codedom.6.0.0.nupkg.sha512",
     "C:\\Users\\KynguaT\\.nuget\\packages\\system.collections.immutable\\7.0.0\\system.collections.immutable.7.0.0.nupkg.sha512",

@@ -1068,6 +1068,18 @@
           "buildTransitive/Mono.TextTemplating.targets": {}
         }
       },
+      "reCAPTCHA.AspNetCore/3.0.10": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/reCAPTCHA.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/reCAPTCHA.AspNetCore.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "System.ClientModel/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -3699,6 +3711,19 @@
         "readme.md"
       ]
     },
+    "reCAPTCHA.AspNetCore/3.0.10": {
+      "sha512": "MJ3MCMBWr4gd+JZBXyUyT+YOdnMTNlysRrWKne/B/4hSxrpqERxinenvup6hVkQAoPz0DXzzJDujROEQPwohow==",
+      "type": "package",
+      "path": "recaptcha.aspnetcore/3.0.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/netcoreapp3.1/reCAPTCHA.AspNetCore.dll",
+        "recaptcha.aspnetcore.3.0.10.nupkg.sha512",
+        "recaptcha.aspnetcore.nuspec"
+      ]
+    },
     "System.ClientModel/1.0.0": {
       "sha512": "I3CVkvxeqFYjIVEP59DnjbeoGNfo/+SZrCLpRz2v/g0gpCHaEMPtWSY0s9k/7jR1rAsLNg2z2u1JRB76tPjnIw==",
       "type": "package",
@@ -4904,7 +4929,8 @@
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.10",
       "Microsoft.EntityFrameworkCore >= 9.0.1",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.1",
-      "Microsoft.EntityFrameworkCore.Tools >= 9.0.1"
+      "Microsoft.EntityFrameworkCore.Tools >= 9.0.1",
+      "reCAPTCHA.AspNetCore >= 3.0.10"
     ]
   },
   "packageFolders": {
@@ -4974,6 +5000,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[9.0.1, )"
+          },
+          "reCAPTCHA.AspNetCore": {
+            "target": "Package",
+            "version": "[3.0.10, )"
           }
         },
         "imports": [

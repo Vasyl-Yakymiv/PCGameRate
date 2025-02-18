@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using PCGameRate.Data;
@@ -53,11 +54,13 @@ namespace PCGameRate.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "admin")]
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Create(CreateGameViewModel gameVM)
         {
             if (!ModelState.IsValid)
@@ -81,6 +84,7 @@ namespace PCGameRate.Controllers
 
         }
         [HttpGet]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(int id)
         {
             var game = await _gameRepo.GetByIdAsync(id);
@@ -101,6 +105,7 @@ namespace PCGameRate.Controllers
             return View(gameVM);
         }
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(int id, EditGameViewModel gameVM)
         {
             if (!ModelState.IsValid)
@@ -138,6 +143,7 @@ namespace PCGameRate.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var game = await _gameRepo.GetByIdAsync(id);
@@ -146,6 +152,7 @@ namespace PCGameRate.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteGame(int id)
         {
             var game = await _gameRepo.GetByIdAsync(id);

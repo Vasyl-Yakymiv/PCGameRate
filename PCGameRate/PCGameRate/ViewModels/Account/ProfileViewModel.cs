@@ -4,11 +4,14 @@ namespace PCGameRate.ViewModels.Account
 {
     public class ProfileViewModel
     {
-        [Required]
-        [Display(Name = "Повне ім'я")]
+        [Display(Name = "Ваше ім'я")]
         public string FullName { get; set; }
 
-        [Display(Name = "Зображення профілю")]
-        public string ProfileImageUrl { get; set; }
+        [Display(Name = "Аватар")]
+        public string ProfileImageUrl { get; set; } 
+
+        // Поле для завантаження файлу
+        [Display(Name = "Завантажити аватар")]
+        public IFormFile ProfileImage { get; set; }
     }
 }

@@ -8,6 +8,8 @@ using PCGameRate.Models;
 using PCGameRate.ViewModels.Account;
 using PCGameRate.ViewModels.Rating;
 using System.Security.Claims;
+using reCAPTCHA.AspNetCore;
+using Microsoft.Extensions.Configuration;
 
 namespace PCGameRate.Controllers
 {
@@ -26,6 +28,7 @@ namespace PCGameRate.Controllers
             _userManager = userManager;
             _webHostEnvironment = webHostEnvironment;
             _accountRepo = accountRepo;
+           
         }
 
         [HttpGet]
@@ -39,6 +42,7 @@ namespace PCGameRate.Controllers
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
             if (!ModelState.IsValid) return View(loginViewModel);
+
 
             var user = await _userManager.FindByEmailAsync(loginViewModel.EmailAddress);
 
@@ -59,7 +63,7 @@ namespace PCGameRate.Controllers
                 TempData["Помилка"] = "Неправильні облікові дані. Спробуйте ще раз";
                 return View(loginViewModel);
             }
-           
+            
             TempData["Помилка"] = "Неправильні облікові дані. Спробуйте ще раз";
             return View(loginViewModel);
         }
@@ -68,6 +72,7 @@ namespace PCGameRate.Controllers
         public IActionResult Register()
         {
             var response = new RegisterViewModel();
+
             return View(response);
         }
 
@@ -93,7 +98,6 @@ namespace PCGameRate.Controllers
 
             if (newUserResponse.Succeeded)
                 await _userManager.AddToRoleAsync(newUser, UserRoles.User);
-
             return RedirectToAction("Index", "Game");
         }
 
@@ -128,7 +132,7 @@ namespace PCGameRate.Controllers
             var model = new ProfileViewModel
             {
                 FullName = user.FullName,
-                ProfileImageUrl = user.ProfileImageUrl
+                ProfileImageUrl = user.ProfileImageUrl ?? ""  
             };
 
             return View(model);
@@ -137,45 +141,58 @@ namespace PCGameRate.Controllers
         [HttpPost]
         public async Task<IActionResult> Profile(ProfileViewModel model)
         {
-            if (ModelState.IsValid)
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
             {
-                var user = await _userManager.GetUserAsync(User);
-                if (user == null)
-                {
-                    return RedirectToAction("Login", "Account");
-                }
-
-                user.FullName = model.FullName;
-
-                if (!string.IsNullOrEmpty(model.ProfileImageUrl))
-                {
-
-                    if (Uri.IsWellFormedUriString(model.ProfileImageUrl, UriKind.Absolute))
-                    {
-                        user.ProfileImageUrl = model.ProfileImageUrl;
-                    }
-                    else
-                    {
-                        ModelState.AddModelError(string.Empty, "Неправильний формат URL зображення.");
-                        return View("Profile", model);
-                    }
-                }
-
-                var result = await _userManager.UpdateAsync(user);
-                if (result.Succeeded)
-                {
-                    await _signInManager.RefreshSignInAsync(user);
-                    return RedirectToAction("Profile");
-                }
-
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
+                return RedirectToAction("Login", "Account");
             }
 
-            return View("Profile", model);
+            user.FullName = model.FullName;
+
+           
+            if (model.ProfileImage != null && model.ProfileImage.Length > 0)
+            {
+      
+                if (!string.IsNullOrEmpty(user.ProfileImageUrl))
+                {
+                    var oldImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", user.ProfileImageUrl.TrimStart('/'));
+                    if (System.IO.File.Exists(oldImagePath))
+                    {
+                        System.IO.File.Delete(oldImagePath); 
+                    }
+                }
+
+               
+                var fileName = $"{user.Id}_{Path.GetFileName(model.ProfileImage.FileName)}";
+                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/avatars", fileName);
+
+                
+                using (var stream = new FileStream(uploadPath, FileMode.Create))
+                {
+                    await model.ProfileImage.CopyToAsync(stream);
+                }
+
+               
+                user.ProfileImageUrl = $"/images/avatars/{fileName}";
+            }
+
+            
+            var result = await _userManager.UpdateAsync(user);
+            if (result.Succeeded)
+            {
+                await _signInManager.RefreshSignInAsync(user);
+                return RedirectToAction("Profile");
+            }
+
+            
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+
+            return View(model);
         }
+
 
         [HttpGet]
         public async Task<IActionResult> Recommendations()

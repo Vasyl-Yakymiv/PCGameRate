@@ -65,6 +65,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\images\\avatars\\8cc58c92-f513-4b96-a74d-603d96207d94_power-chainsaw-man-chain-saw.gif",
+      "PackagePath": "staticwebassets\\images\\avatars\\8cc58c92-f513-4b96-a74d-603d96207d94_power-chainsaw-man-chain-saw.gif"
+    },
+    {
       "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\js\\expected-games.js",
       "PackagePath": "staticwebassets\\js\\expected-games.js"
     },

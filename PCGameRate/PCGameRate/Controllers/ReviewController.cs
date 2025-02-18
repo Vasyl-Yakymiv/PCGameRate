@@ -84,5 +84,71 @@ namespace PCGameRate.Controllers
 
             return RedirectToAction("ReviewList","Review"); 
         }
+
+        [HttpPost]
+        public async Task<IActionResult> VoteReview(int reviewId, bool isLike)
+        {
+            var review = await _context.Reviews
+                .Include(r => r.Votes)
+                .FirstOrDefaultAsync(r => r.ReviewId == reviewId);
+
+            if (review == null)
+            {
+                return NotFound();
+            }
+
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
+
+            var existingVote = review.Votes.FirstOrDefault(v => v.Id == userId);
+
+            if (existingVote != null)
+            {
+                if (existingVote.IsLike == isLike)
+                {
+                   
+                    _context.Votes.Remove(existingVote);
+                    if (isLike) review.Likes--;
+                    else review.Dislikes--;
+                }
+                else
+                {
+                   
+                    existingVote.IsLike = isLike;
+                    if (isLike)
+                    {
+                        review.Likes++;
+                        review.Dislikes--;
+                    }
+                    else
+                    {
+                        review.Likes--;
+                        review.Dislikes++;
+                    }
+                }
+            }
+            else
+            {
+                
+                var vote = new Vote
+                {
+                    ReviewId = reviewId,
+                    Id = userId,
+                    IsLike = isLike
+                };
+                _context.Votes.Add(vote);
+
+                if (isLike) review.Likes++;
+                else review.Dislikes++;
+            }
+
+            await _context.SaveChangesAsync();
+
+            return Json(new { likes = review.Likes, dislikes = review.Dislikes });
+        }
+
     }
 }

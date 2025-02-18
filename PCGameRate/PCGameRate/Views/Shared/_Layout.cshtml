@@ -6,6 +6,7 @@
         var user = await UserManager.GetUserAsync(User);
         fullName = user?.FullName ?? user.UserName ?? "Невідомий користувач";
     }
+    <title>@(ViewData["Title"] != null ? ViewData["Title"] : "Default Title")</title>
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +17,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PCGameRate.styles.css" asp-append-version="true" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     
 </head>
 <body>
@@ -27,22 +29,23 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="navbar-collapse collapse d-sm-inline-flex">
+                    <ul class="navbar-nav flex-grow-1 d-flex  align-items-center">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Index">Ігри</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Top100">Топ 100 ігор</a>
                         </li>
-                        <li class="align-items-center">
-                            <form asp-controller="Game" asp-action="SearchResults" method="get" class="d-flex">
-                                <input type="text" id="searchBox" name="query" class="form-control me-2 fixhight" placeholder="Пошук ігор..." autocomplete="off" />
-                                <button type="submit" class="btn btn-outline-secondary place-b btn:hover" style="margin-top: 0px;">🔍</button>
+                        <li class="nav-item d-flex align-items-center" style="margin-top: 12px; margin-bottom: 8px;"> 
+                            <form asp-controller="Game" asp-action="SearchResults" method="get" class="d-flex align-items-center">
+                                <input type="text" id="searchBox" name="query" style="margin-top: 12px;" class="form-control me-2 fixhight" placeholder="Пошук ігор..." autocomplete="off" />
+                                <button type="submit" class="btn btn-outline-secondary place-b btn:hover" style="margin-top: 12px;">🔍</button>
                             </form>
                             <div id="suggestions" class="suggestions-box"></div>
                         </li>
                     </ul>
+
                     <ul class="navbar-nav ml-auto">
                         @if (User.Identity.IsAuthenticated)
                         {

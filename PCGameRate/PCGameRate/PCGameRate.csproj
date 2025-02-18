@@ -21,11 +21,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="reCAPTCHA.AspNetCore" Version="3.0.10" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Views\Video\" />
-    <Folder Include="wwwroot\img\" />
+    <Folder Include="wwwroot\images\avatars\" />
   </ItemGroup>
 
 </Project>

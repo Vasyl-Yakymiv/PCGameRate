@@ -11,7 +11,8 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.10",
           "Microsoft.EntityFrameworkCore": "9.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.1",
-          "Microsoft.EntityFrameworkCore.Tools": "9.0.1"
+          "Microsoft.EntityFrameworkCore.Tools": "9.0.1",
+          "reCAPTCHA.AspNetCore": "3.0.10"
         },
         "runtime": {
           "PCGameRate.dll": {}
@@ -801,6 +802,14 @@
           }
         }
       },
+      "reCAPTCHA.AspNetCore/3.0.10": {
+        "runtime": {
+          "lib/netcoreapp3.1/reCAPTCHA.AspNetCore.dll": {
+            "assemblyVersion": "3.0.10.0",
+            "fileVersion": "3.0.10.0"
+          }
+        }
+      },
       "System.ClientModel/1.0.0": {
         "dependencies": {
           "System.Memory.Data": "1.0.2",
@@ -1453,6 +1462,13 @@
       "sha512": "sha512-YqueG52R/Xej4VVbKuRIodjiAhV0HR/XVbLbNrJhCZnzjnSjgMJ/dCdV0akQQxavX6hp/LC6rqLGLcXeQYU7XA==",
       "path": "mono.texttemplating/3.0.0",
       "hashPath": "mono.texttemplating.3.0.0.nupkg.sha512"
+    },
+    "reCAPTCHA.AspNetCore/3.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MJ3MCMBWr4gd+JZBXyUyT+YOdnMTNlysRrWKne/B/4hSxrpqERxinenvup6hVkQAoPz0DXzzJDujROEQPwohow==",
+      "path": "recaptcha.aspnetcore/3.0.10",
+      "hashPath": "recaptcha.aspnetcore.3.0.10.nupkg.sha512"
     },
     "System.ClientModel/1.0.0": {
       "type": "package",

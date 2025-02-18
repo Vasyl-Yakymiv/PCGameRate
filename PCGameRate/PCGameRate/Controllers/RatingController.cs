@@ -131,5 +131,42 @@ namespace PCGameRate.Controllers
             return View(ratedGames);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> DeleteRating(int gameId)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized();
+            }
+
+            var existingRating = await _context.Ratings
+                .FirstOrDefaultAsync(r => r.GameId == gameId && r.Id == userId);
+
+            var game = await _context.Games.FindAsync(gameId);
+            if (game == null || existingRating == null)
+            {
+                return NotFound();
+            }
+
+            
+            if (game.RatingCount > 1)
+            {
+                game.RatingAverage = ((game.RatingAverage * game.RatingCount) - existingRating.RatingValue) / (game.RatingCount - 1);
+                game.RatingCount--;
+            }
+            else
+            {
+                game.RatingAverage = 0; 
+                game.RatingCount = 0;
+            }
+
+            _context.Ratings.Remove(existingRating);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Detail", "Game", new { id = gameId });
+        }
+
+
     }
 }

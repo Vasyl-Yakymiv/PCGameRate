@@ -9,7 +9,7 @@ namespace PCGameRate.Data
         {
             using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
             {
-                //Users
+             
                 var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<User>>();
                 string adminUserEmail = "vasylyakymivdeveloper@gmail.com";
 

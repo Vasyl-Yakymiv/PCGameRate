@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UlGoHr3DoOJlvnQd8GDOWgYWiX+Y0njxWH35LhOEjjg=",
+  "Hash": "sVpaUGATRHJpxrIzxOniMSwESaqsj3mhXsnDcc4A1vI=",
   "Source": "PCGameRate",
   "BasePath": "_content/PCGameRate",
   "Mode": "Default",
@@ -338,6 +338,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\images\\avatars\\8cc58c92-f513-4b96-a74d-603d96207d94_power-chainsaw-man-chain-saw.gif",
+      "SourceId": "PCGameRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\",
+      "BasePath": "_content/PCGameRate",
+      "RelativePath": "images/avatars/8cc58c92-f513-4b96-a74d-603d96207d94_power-chainsaw-man-chain-saw.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\avatars\\8cc58c92-f513-4b96-a74d-603d96207d94_power-chainsaw-man-chain-saw.gif"
     },
     {
       "Identity": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\js\\expected-games.js",
