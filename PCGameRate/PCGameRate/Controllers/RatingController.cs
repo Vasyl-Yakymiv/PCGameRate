@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PCGameRate.Data;
 using PCGameRate.Models;
@@ -10,10 +11,11 @@ namespace PCGameRate.Controllers
     public class RatingController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public RatingController(ApplicationDbContext context)
+        private readonly UserManager<User> _userManager;
+        public RatingController(ApplicationDbContext context, UserManager<User> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         
@@ -25,7 +27,17 @@ namespace PCGameRate.Controllers
                 return NotFound();
             }
 
-            var userId = User.Identity.Name; 
+            
+            var userIdForCount = _userManager.GetUserId(User);
+            var today = DateTime.UtcNow.Date;
+            int ratingToday = await _context.Ratings
+                         .Where(u => u.Id == userIdForCount && u.RatingDate >= today)
+                         .CountAsync();
+            if (ratingToday >= 100) {
+                TempData["ErrorMessage"] = "Ви вже оцінили 100 ігор на сьогодні. Повторіть спробу завтра.";
+                return RedirectToAction("Detail", "Game",new { id = gameId });
+            }
+            var userId = User.Identity.Name;
             var existingRating = await _context.Ratings
                 .FirstOrDefaultAsync(r => r.GameId == gameId && r.User.UserName == userId);
 

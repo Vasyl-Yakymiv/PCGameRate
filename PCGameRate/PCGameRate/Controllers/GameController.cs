@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -173,6 +174,15 @@ namespace PCGameRate.Controllers
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
+            bool isInGameList = false;
+
+            if (userId != null)
+            {
+                    isInGameList = await _context.GameList.AnyAsync(gl => gl.Id == userId && gl.GameId == id);
+            }
+
+            ViewBag.IsInGameList = isInGameList;
+               
             var userRating = await _context.Ratings
                 .Where(r => r.GameId == id && r.Id == userId)
                 .Select(r => r.RatingValue)

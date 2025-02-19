@@ -7,6 +7,25 @@
         fullName = user?.FullName ?? user.UserName ?? "Невідомий користувач";
     }
     <title>@(ViewData["Title"] != null ? ViewData["Title"] : "Default Title")</title>
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div id="errorToast" class="toast align-items-center text-white bg-danger border-0 position-fixed top-0 end-0 m-3"
+             role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 1050;">
+            <div class="d-flex">
+                <div class="toast-body">
+                    @TempData["ErrorMessage"]
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var errorToast = new bootstrap.Toast(document.getElementById('errorToast'));
+                errorToast.show();
+            });
+        </script>
+    }
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -37,15 +56,14 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Top100">Топ 100 ігор</a>
                         </li>
-                        <li class="nav-item d-flex align-items-center" style="margin-top: 12px; margin-bottom: 8px;"> 
-                            <form asp-controller="Game" asp-action="SearchResults" method="get" class="d-flex align-items-center">
-                                <input type="text" id="searchBox" name="query" style="margin-top: 12px;" class="form-control me-2 fixhight" placeholder="Пошук ігор..." autocomplete="off" />
-                                <button type="submit" class="btn btn-outline-secondary place-b btn:hover" style="margin-top: 12px;">🔍</button>
+                        <li class="align-items-center">
+                            <form asp-controller="Game" asp-action="SearchResults" method="get" class="d-flex" style="margin-top: 16px;">
+                                <input type="text" id="searchBox" name="query" class="form-control me-2 fixhight" placeholder="Пошук ігор..." autocomplete="off" />
+                                <button type="submit" class="btn btn-outline-secondary place-b btn:hover" style="margin-top: 0px;">🔍</button>
                             </form>
                             <div id="suggestions" class="suggestions-box"></div>
                         </li>
                     </ul>
-
                     <ul class="navbar-nav ml-auto">
                         @if (User.Identity.IsAuthenticated)
                         {
@@ -56,9 +74,10 @@
                                         @fullName
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
-                                        <li><a class="dropdown-item" style="color: black; margin: 0px 0px 0px 0px;" asp-controller="Rating" asp-action="RatingList">Список оцінених ігор</a></li>
-                                        <li><a class="dropdown-item" style="color: black; margin: 0px 0px 0px 0px;" asp-controller="Review" asp-action="ReviewList">Список написаних рецензій</a></li>
-                                        <li><a class="dropdown-item" style="color: black; margin: 0px 0px 0px 0px;" asp-controller="Account" asp-action="Recommendations">Список рекомендацій</a></li>
+                                        <li><a class="dropdown-item" style="color: black; margin: 0px 0px 0px 0px;" asp-controller="Rating" asp-action="RatingList">Оцінені ігри</a></li>
+                                        <li><a class="dropdown-item" style="color: black; margin: 0px 0px 0px 0px;" asp-controller="Review" asp-action="ReviewList">Написані рецензії</a></li>
+                                        <li><a class="dropdown-item" style="color: black; margin: 0px 0px 0px 0px;" asp-controller="GameList" asp-action="Index">Ігри на майбутнє</a></li>
+                                        <li><a class="dropdown-item" style="color: black; margin: 0px 0px 0px 0px;" asp-controller="Account" asp-action="Recommendations">Рекомендації</a></li>
                                         <li><a class="dropdown-item" style="color: black; margin: 0px 0px 0px 0px;" asp-controller="Account" asp-action="Profile">Налаштування акаунта</a></li>
                                     </ul>
                                 </li>

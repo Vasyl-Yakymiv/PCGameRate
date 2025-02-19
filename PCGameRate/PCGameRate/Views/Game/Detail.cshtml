@@ -35,15 +35,16 @@
 
                     <div style="display: flex; gap: 10px; align-items: center;">
                         <a asp-action="RateGame" asp-controller="Rating" asp-route-gameId="@Model.GameId"
-                           class="btn btn-success" style="border:none;">
+                           class="btn btn-success" style="border: none;">
                             Оцінити гру
                         </a>
 
                         @if (ViewBag.UserRating > 0)
                         {
-                            <form asp-action="DeleteRating" asp-controller="Rating" method="post">
+                            <form asp-action="DeleteRating" asp-controller="Rating" method="post"
+                                  style="display: flex; align-items: center;">
                                 <input type="hidden" name="gameId" value="@Model.GameId" />
-                                <button type="submit" class="btn btn-danger" style="border: none;"
+                                <button type="submit" class="btn btn-danger" style="border: none; margin-top: 25px;"
                                         onclick="return confirm('Ви впевнені, що хочете видалити свій рейтинг?')">
                                     Видалити рейтинг
                                 </button>
@@ -52,7 +53,20 @@
                     </div>
                 </div>
             }
+            @if (User.Identity.IsAuthenticated)
+            {
+            <div>
+                    <form id="gameListForm" asp-controller="GameList" asp-action="ToggleGameList" method="post">
+                        <input type="hidden" name="gameId" value="@Model.GameId" />
 
+                        <button type="submit" id="gameListButton" class="btn @(ViewBag.IsInGameList ? "btn-danger" : "btn-outline-primary")" style="border: none;">
+                            <span id="gameListIcon">
+                                @(ViewBag.IsInGameList ? "📌 Видалити зі списку" : "⭐ Додати в список")
+                            </span>
+                        </button>
+                    </form>
+            </div>
+            }
         </div>
     </div>
 
@@ -264,3 +278,31 @@
         }
 }
 </style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#gameListForm").submit(function (e) {
+            e.preventDefault(); // Зупиняємо стандартну відправку форми
+
+            $.ajax({
+                url: $(this).attr("action"),  // Отримуємо URL з атрибуту `action`
+                type: "POST",
+                data: $(this).serialize(),  // Передаємо форму
+                success: function (data) {
+                    if (data.isInGameList) {
+                        $("#gameListButton").removeClass("btn-outline-primary").addClass("btn-danger");
+                        $("#gameListIcon").html("📌 Видалити зі списку");
+                    } else {
+                        $("#gameListButton").removeClass("btn-danger").addClass("btn-outline-primary");
+                        $("#gameListIcon").html("⭐ Додати в список");
+                    }
+                },
+                error: function () {
+                    alert("Помилка! Спробуйте ще раз.");
+                }
+            });
+        });
+    });
+</script>

@@ -19,5 +19,6 @@ namespace PCGameRate.Data
         public DbSet<GameVideo> GameVideos { get; set; }
         public DbSet<ReviewVote> ReviewVotes { get; set; }
         public DbSet<Vote> Votes { get; set; }
+        public DbSet<GameListItem> GameList { get; set; }
     }
 }

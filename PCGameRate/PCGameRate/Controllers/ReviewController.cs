@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PCGameRate.Data;
 using PCGameRate.Models;
@@ -10,10 +11,12 @@ namespace PCGameRate.Controllers
 {
     public class ReviewController : Controller
     {
-        ApplicationDbContext _context;
-        public ReviewController(ApplicationDbContext context)
+         private readonly ApplicationDbContext _context;
+        private readonly UserManager<User> _userManager;
+        public ReviewController(ApplicationDbContext context, UserManager<User> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
         [HttpGet]
         public IActionResult Create(int gameId)
@@ -31,6 +34,19 @@ namespace PCGameRate.Controllers
         {
             if (ModelState.IsValid)
             {
+                var userId = _userManager.GetUserId(User);
+                var today = DateTime.UtcNow.Date;
+
+                int reviewsToday = await _context.Reviews
+                    .Where(r => r.Id == userId && r.DatePosted >= today)
+                    .CountAsync();
+
+                if (reviewsToday >= 10)
+                {
+                    TempData["ErrorMessage"] = "Ви вже залишили 10 рецензій сьогодні. Повторіть спробу завтра.";
+                    return RedirectToAction("Detail","Game", new { id = model.GameId }); 
+                }
+
                 var review = new Review
                 {
                     ReviewText = model.Content,
@@ -56,6 +72,7 @@ namespace PCGameRate.Controllers
             var ratedGames = await _context.Reviews
                 .Include(r => r.Game)
                 .Where(r => r.Id == userId)
+                .OrderByDescending(r => r.DatePosted)
                 .Select(r => new ReviewListViewModel
                 {
                     ReviewId = r.ReviewId,
