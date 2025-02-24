@@ -97,7 +97,15 @@ namespace PCGameRate.Controllers
             var newUserResponse = await _userManager.CreateAsync(newUser, registerViewModel.Password);
 
             if (newUserResponse.Succeeded)
+            {
                 await _userManager.AddToRoleAsync(newUser, UserRoles.User);
+            }
+            else
+            {
+                TempData["Error"] = "Пароль повинен містити щонайменше одну цифру, одну малу літеру, одну велику літеру та один спеціальний символ.";
+                return View(registerViewModel);
+            }
+                
             return RedirectToAction("Index", "Game");
         }
 
