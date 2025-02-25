@@ -10,6 +10,7 @@ using PCGameRate.ViewModels.Rating;
 using System.Security.Claims;
 using reCAPTCHA.AspNetCore;
 using Microsoft.Extensions.Configuration;
+using PCGameRate.Services;
 
 namespace PCGameRate.Controllers
 {
@@ -20,15 +21,17 @@ namespace PCGameRate.Controllers
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly ApplicationDbContext _context;
         private readonly IAccountRepository _accountRepo;
+        private readonly CaptchaService _captchaService;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationDbContext context, IWebHostEnvironment webHostEnvironment, IAccountRepository accountRepo)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationDbContext context, IWebHostEnvironment webHostEnvironment, IAccountRepository accountRepo,CaptchaService captchaService)
         {
             _context = context;
             _signInManager = signInManager;
             _userManager = userManager;
             _webHostEnvironment = webHostEnvironment;
             _accountRepo = accountRepo;
-           
+            _captchaService = captchaService;
+
         }
 
         [HttpGet]
@@ -43,7 +46,12 @@ namespace PCGameRate.Controllers
         {
             if (!ModelState.IsValid) return View(loginViewModel);
 
-
+            var captchaResponse = Request.Form["g-recaptcha-response"];
+            if (!await _captchaService.IsCaptchaValid(captchaResponse))
+            {
+                TempData["Error"] = "reCAPTCHA не пройдено";
+                return View(loginViewModel);
+            }
             var user = await _userManager.FindByEmailAsync(loginViewModel.EmailAddress);
 
             if (user != null)
@@ -80,6 +88,13 @@ namespace PCGameRate.Controllers
         public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
         {
             if (!ModelState.IsValid) return View(registerViewModel);
+
+            var captchaResponse = Request.Form["g-recaptcha-response"];
+            if (!await _captchaService.IsCaptchaValid(captchaResponse))
+            {
+                TempData["Error"] = "reCAPTCHA не пройдено";
+                return View(registerViewModel);
+            }
 
             var user = await _userManager.FindByEmailAsync(registerViewModel.EmailAddress);
             if (user != null)

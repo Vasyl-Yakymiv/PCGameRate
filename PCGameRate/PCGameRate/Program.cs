@@ -5,6 +5,7 @@ using PCGameRate.Data;
 using PCGameRate.Interfaces;
 using PCGameRate.Models;
 using PCGameRate.Repository;
+using PCGameRate.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IGameRepository,GameRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
-
+builder.Services.AddSingleton<CaptchaService>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));

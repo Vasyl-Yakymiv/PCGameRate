@@ -174,3 +174,4 @@ C:\Users\KynguaT\PCGameRate\PCGameRate\PCGameRate\PCGameRate\bin\Debug\net8.0\Mi
 C:\Users\KynguaT\PCGameRate\PCGameRate\PCGameRate\PCGameRate\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\KynguaT\PCGameRate\PCGameRate\PCGameRate\PCGameRate\bin\Debug\net8.0\reCAPTCHA.AspNetCore.dll
 C:\Users\KynguaT\PCGameRate\PCGameRate\PCGameRate\PCGameRate\obj\Debug\net8.0\PCGameRate.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\KynguaT\PCGameRate\PCGameRate\PCGameRate\PCGameRate\bin\Debug\net8.0\Newtonsoft.Json.dll

@@ -14,7 +14,7 @@ namespace PCGameRate.ViewModels.Account
         [Display(Name = "Повторіть пароль")]
         [Required(ErrorMessage = "Повторне введення паролю є обов'язковим")]
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Password do not match")]
+        [Compare("Password", ErrorMessage = "Паролі не співпадають!")]
         public string ConfirmPassword { get; set; }
     }
 }
