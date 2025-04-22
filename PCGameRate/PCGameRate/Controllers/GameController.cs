@@ -183,10 +183,7 @@ namespace PCGameRate.Controllers
 
             ViewBag.IsInGameList = isInGameList;
                
-            var userRating = await _context.Ratings
-                .Where(r => r.GameId == id && r.Id == userId)
-                .Select(r => r.RatingValue)
-                .FirstOrDefaultAsync();
+            var userRating = await _gameRepo.GetUserRating(id,userId);
 
             ViewBag.UserRating = userRating;
 
@@ -219,9 +216,7 @@ namespace PCGameRate.Controllers
         [HttpGet]
         public async Task<IActionResult> SearchResults(string query)
         {
-            var results = await _context.Games
-                .Where(g => g.Title.Contains(query))
-                .ToListAsync();
+            var results = await _gameRepo.SearchResult(query);
 
             return View(results);
         }
@@ -247,16 +242,7 @@ namespace PCGameRate.Controllers
         [HttpGet]
         public async Task<IActionResult> GetExpectedGames()
         {
-            var popularGames = await _context.Games
-                .Where(g => (bool)g.IsExpected)
-                .Select(g => new
-                {
-                    g.GameId,
-                    g.Title,
-                    g.Image,
-                    ReleaseYear = g.ReleaseDate
-                })
-                .ToListAsync();
+            var popularGames = await _gameRepo.GetExpectedGames();
 
             return Json(popularGames);
         }
@@ -280,12 +266,10 @@ namespace PCGameRate.Controllers
         }
 
         [HttpGet]
-        public IActionResult Top100(string sortOrder)
+        public async Task<IActionResult> Top100(string sortOrder)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var games = _context.Games
-                .Where(g => g.RatingCount >= 1000)
-                .AsQueryable();
+            var games = await _gameRepo.GetTopSortedGames();
 
 
             var topGames = games

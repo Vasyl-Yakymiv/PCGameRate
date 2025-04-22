@@ -15,6 +15,16 @@ namespace PCGameRate.Repository
             _context = context;
         }
 
+        public async Task<List<Game?>> GetPopularGames()
+        {
+            return await _context.Games
+                        .Where(g => g.IsPopular)
+                        .Include(i => i.Developer)
+                        .Include(x => x.Genre)
+                        .Take(10)
+                        .ToListAsync();
+        }
+
         public List<Game> GetRecommendedGames(List<Rating> userRatings)
         {
             
@@ -35,6 +45,13 @@ namespace PCGameRate.Repository
                                          .ToList();
 
             return randomRecommendedGames;
+        }
+
+        public async Task<List<Rating?>> GetUserRatings(string userId)
+        {
+           return await _context.Ratings
+                        .Where(r => r.User.UserName == userId)
+                        .ToListAsync();
         }
     }
 }

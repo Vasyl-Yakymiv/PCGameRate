@@ -79,7 +79,7 @@
 </style>
 
 <script>
-    // Потрібно вказати ID гри
+    
     var gameId = @Model.GameId;
 
     fetch('/Game/GetRatingStats?gameId=' + gameId)
@@ -88,35 +88,35 @@
             var ratingValues = [];
             var ratingCounts = [];
 
-            // Створюємо об'єкт для зберігання кількості оцінок
+            
             var ratingData = {};
 
-            // Заповнюємо об'єкт даними з відповіді
+           
             data.forEach(item => {
                 ratingData[item.ratingValue] = item.count;
             });
 
-            // Заповнюємо масиви для всіх оцінок від 1 до 10
+        
             for (var i = 1; i <= 10; i++) {
                 ratingValues.push(i);
-                ratingCounts.push(ratingData[i] || 0); // Якщо оцінки немає, то ставимо 0
+                ratingCounts.push(ratingData[i] || 0); 
             }
 
-            // Створюємо графік
+           
             var ctx = document.getElementById('ratingChart').getContext('2d');
             var chart = new Chart(ctx, {
-                type: 'bar', // Залишаємо 'bar' для горизонтальних стовпців
+                type: 'bar', 
                 data: {
-                    labels: ratingValues, // Оцінки 1-10
+                    labels: ratingValues, 
                     datasets: [{
-                        data: ratingCounts, // Кількість для кожної оцінки
+                        data: ratingCounts, 
                         backgroundColor: 'rgba(54, 162, 235, 0.2)',
                         borderColor: 'rgba(54, 162, 235, 1)',
                         borderWidth: 1
                     }]
                 },
                 options: {
-                    indexAxis: 'y', // Для горизонтальних стовпців
+                    indexAxis: 'y', 
                     scales: {
                         x: {
                             beginAtZero: true,
@@ -125,7 +125,7 @@
                                 display: true,
                             },
                             grid: {
-                                display: false // Прибираємо сітку на осі X
+                                display: false 
                             }
                         },
                         y: {
@@ -133,13 +133,13 @@
                                 display: true,
                             },
                             grid: {
-                                display: false // Прибираємо сітку на осі Y
+                                display: false
                             }
                         }
                     },
                     plugins: {
                         legend: {
-                            display: false // Прибирає кнопку для включення/виключення графіка
+                            display: false 
                         }
                     }
                 }

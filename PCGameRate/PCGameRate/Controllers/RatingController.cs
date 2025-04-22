@@ -33,8 +33,8 @@ namespace PCGameRate.Controllers
             int ratingToday = await _context.Ratings
                          .Where(u => u.Id == userIdForCount && u.RatingDate >= today)
                          .CountAsync();
-            if (ratingToday >= 100) {
-                TempData["ErrorMessage"] = "Ви вже оцінили 100 ігор на сьогодні. Повторіть спробу завтра.";
+            if (ratingToday >= 50) {
+                TempData["ErrorMessage"] = "Ви вже оцінили 50 ігор на сьогодні. Повторіть спробу завтра.";
                 return RedirectToAction("Detail", "Game",new { id = gameId });
             }
             var userId = User.Identity.Name;

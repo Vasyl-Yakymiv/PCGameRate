@@ -47,6 +47,13 @@ namespace PCGameRate.Repository
                 .FirstOrDefaultAsync(i => i.GameId == id);
         }
 
+        public async Task<List<Game?>> GetExpectedGames()
+        {
+            return await _context.Games
+                .Where(g => (bool)g.IsExpected)
+                .ToListAsync();
+        }
+
         public async Task<IEnumerable<Game>> GetTop100()
         {
             return await _context.Games
@@ -55,6 +62,21 @@ namespace PCGameRate.Repository
                 .ThenByDescending(g => g.RatingCount)
                 .Take(100)
                 .ToListAsync();
+        }
+
+        public async Task<List<Game?>> GetTopSortedGames()
+        {
+            return await _context.Games
+                .Where(g => g.RatingCount >= 1000)
+                 .ToListAsync();
+        }
+
+        public async Task<int?> GetUserRating(int id, string userId)
+        {
+            return await _context.Ratings
+                .Where(r => r.GameId == id && r.Id == userId)
+                .Select(r => r.RatingValue)
+                .FirstOrDefaultAsync();
         }
 
         public async Task<Game?> GetWithReviewAndScreenshotsByIdAsync(int id)
@@ -66,6 +88,13 @@ namespace PCGameRate.Repository
         {
             var saved = _context.SaveChanges();
             return saved > 0;
+        }
+
+        public async Task<List<Game?>> SearchResult(string query)
+        {
+            return await _context.Games
+                .Where(g => g.Title.Contains(query))
+                .ToListAsync();
         }
 
         public bool Update(Game game)

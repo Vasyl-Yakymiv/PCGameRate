@@ -221,18 +221,11 @@ namespace PCGameRate.Controllers
         public async Task<IActionResult> Recommendations()
         {
             var userId = User.Identity.Name;
-            var userRatings = await _context.Ratings
-                                            .Where(r => r.User.UserName == userId)
-                                            .ToListAsync();
+            var userRatings = await _accountRepo.GetUserRatings(userId);
             if (userRatings.Count == 0)
             {
-  
-                var popularGames = await _context.Games
-                                                  .Where(g => g.IsPopular)
-                                                  .Include(i => i.Developer)
-                                                  .Include(x => x.Genre)
-                                                  .Take(10) 
-                                                  .ToListAsync();
+
+                var popularGames = await _accountRepo.GetPopularGames();
                 return View(popularGames); 
             }
 
