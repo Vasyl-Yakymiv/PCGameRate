@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using PCGameRate.Data;
 using PCGameRate.Interfaces;
 using PCGameRate.Models;
+using PCGameRate.Services;
 using PCGameRate.ViewModels.Game;
 using System;
 using System.Net;
@@ -17,10 +18,12 @@ namespace PCGameRate.Controllers
     {
         IGameRepository _gameRepo;
         ApplicationDbContext _context;
-        public GameController(IGameRepository gameRepo, ApplicationDbContext context)
+        private readonly YouTubeService _youTubeService;
+        public GameController(IGameRepository gameRepo, ApplicationDbContext context, YouTubeService youTubeService)
         {
             _gameRepo = gameRepo;
             _context = context;
+            _youTubeService = youTubeService;
         }
         [HttpGet]
         public async Task<IActionResult> Index(int page = 1)
@@ -171,23 +174,29 @@ namespace PCGameRate.Controllers
         public async Task<IActionResult> Detail(int id)
         {
             var game = await _gameRepo.GetWithReviewAndScreenshotsByIdAsync(id);
+            if (game == null) return NotFound();
 
+            var embedHtml = await _youTubeService.GetTopLiveStreamEmbedAsync(game.Title);
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             bool isInGameList = false;
-
             if (userId != null)
             {
-                    isInGameList = await _context.GameList.AnyAsync(gl => gl.Id == userId && gl.GameId == id);
+                isInGameList = await _context.GameList.AnyAsync(gl => gl.Id == userId && gl.GameId == id);
             }
 
             ViewBag.IsInGameList = isInGameList;
-               
-            var userRating = await _gameRepo.GetUserRating(id,userId);
 
+            var userRating = await _gameRepo.GetUserRating(id, userId);
             ViewBag.UserRating = userRating;
 
-            return game == null ? NotFound() : View(game);
+            var viewModel = new GameDetailViewModel
+            {
+                Game = game,
+                YouTubeEmbed = embedHtml
+            };
+
+            return View(viewModel);
         }
 
         [HttpGet]

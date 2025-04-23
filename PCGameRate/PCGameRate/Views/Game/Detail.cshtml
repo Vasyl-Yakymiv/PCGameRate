@@ -1,25 +1,25 @@
-﻿@model Game
+﻿@model GameDetailViewModel
 @{
-    ViewData["Title"] = Model.Title;
+    ViewData["Title"] = Model.Game.Title;
 }
 <link rel="stylesheet" href="~/css/carousel.css" />
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-6">
-            <img src="@Model.Image" class="img-fluid rounded shadow" alt="Game Image" />
+            <img src="@Model.Game.Image" class="img-fluid rounded shadow" alt="Game Image" />
         </div>
 
         <div class="col-md-6">
-            <h1>@Model.Title</h1>
+            <h1>@Model.Game.Title</h1>
             <p class="text-muted"></p>
-            <p>@Model.Description</p>
-            @if (!Model.IsExpected)
+            <p>@Model.Game.Description</p>
+            @if (!Model.Game.IsExpected)
             {
                 <div class="d-flex align-items-center">
-                    <p>⭐ @Model.RatingAverage?.ToString("0.0") (на основі @Model.RatingCount оцінок)</p>
+                    <p>⭐ @Model.Game.RatingAverage?.ToString("0.0") (на основі @Model.Game.RatingCount оцінок)</p>
                 </div>
             }
-            @if (User.Identity.IsAuthenticated && !Model.IsExpected)
+            @if (User.Identity.IsAuthenticated && !Model.Game.IsExpected)
             {
                 <div>
                     <h3>
@@ -34,7 +34,7 @@
                     </h3>
 
                     <div style="display: flex; gap: 10px; align-items: center;">
-                        <a asp-action="RateGame" asp-controller="Rating" asp-route-gameId="@Model.GameId"
+                        <a asp-action="RateGame" asp-controller="Rating" asp-route-gameId="@Model.Game.GameId"
                            class="btn btn-success" style="border: none;">
                             Оцінити гру
                         </a>
@@ -43,7 +43,7 @@
                         {
                             <form asp-action="DeleteRating" asp-controller="Rating" method="post"
                                   style="display: flex; align-items: center;">
-                                <input type="hidden" name="gameId" value="@Model.GameId" />
+                                <input type="hidden" name="gameId" value="@Model.Game.GameId" />
                                 <button type="submit" class="btn btn-danger" style="border: none; margin-top: 25px;"
                                         onclick="return confirm('Ви впевнені, що хочете видалити свій рейтинг?')">
                                     Видалити рейтинг
@@ -57,7 +57,7 @@
             {
             <div>
                     <form id="gameListForm" asp-controller="GameList" asp-action="ToggleGameList" method="post">
-                        <input type="hidden" name="gameId" value="@Model.GameId" />
+                        <input type="hidden" name="gameId" value="@Model.Game.GameId" />
 
                         <button type="submit" id="gameListButton" class="btn @(ViewBag.IsInGameList ? "btn-danger" : "btn-outline-primary")" style="border: none;">
                             <span id="gameListIcon">
@@ -70,18 +70,18 @@
         </div>
     </div>
 
-    @if (Model.Screenshots != null && Model.Screenshots.Any())
+    @if (Model.Game.Screenshots != null && Model.Game.Screenshots.Any())
     {
         <div id="screenshotSlider" class="carousel slide my-5" data-bs-ride="carousel">
             <div class="carousel-inner">
-                @for (int i = 0; i < Model.Screenshots.Count; i += 3) 
+                @for (int i = 0; i < Model.Game.Screenshots.Count; i += 3)
                 {
                     <div class="carousel-item @(i == 0 ? "active" : "")">
                         <div class="row">
-                            @for (int j = i; j < i + 3 && j < Model.Screenshots.Count; j++)
+                            @for (int j = i; j < i + 3 && j < Model.Game.Screenshots.Count; j++)
                             {
                                 <div class="col-4">
-                                    <img src="@Model.Screenshots.ToList()[j].ScreenshotUrl" class="d-block w-100" alt="Screenshot" style="height: 400px; object-fit: cover;">
+                                    <img src="@Model.Game.Screenshots.ToList()[j].ScreenshotUrl" class="d-block w-100" alt="Screenshot" style="height: 400px; object-fit: cover;">
                                 </div>
                             }
                         </div>
@@ -102,7 +102,7 @@
     {
         <div class="screenshot-form-container mb-5">
             <form asp-controller="Screenshot" asp-action="AddScreenshot" method="post" class="screenshot-form">
-                <input type="hidden" name="gameId" value="@Model.GameId" />
+                <input type="hidden" name="gameId" value="@Model.Game.GameId" />
                 <label>Додати скріншот:</label>
                 <input type="text" name="screenshotUrl" placeholder="URL зображення" class="form-control mb-2" />
                 <button type="submit" class="btn btn-success">Додати фото</button>
@@ -115,7 +115,7 @@
     {
         <div class="screenshot-form-container mb-5">
             <form asp-controller="Video" asp-action="AddTrailer" method="post" class="screenshot-form">
-            <input type="hidden" name="gameId" value="@Model.GameId" />
+                <input type="hidden" name="gameId" value="@Model.Game.GameId" />
             <label for="trailerUrl">Введіть URL трейлера:</label>
             <input type="text" id="trailerUrl" name="url" required class="form-control mb-2" />
 
@@ -125,7 +125,7 @@
 
         @if (User.IsInRole("admin"))
         {
-            @foreach (var video in Model.GameVideos)
+            @foreach (var video in Model.Game.GameVideos)
             {
                 <form asp-action="Delete" asp-controller="Video" method="post"
                       onsubmit="return confirmDelete(event, this)" class="delete-form">
@@ -148,7 +148,7 @@
     }
 
     @{
-        var trailer = Model.GameVideos.FirstOrDefault(v => v.Type == "trailer");
+        var trailer = Model.Game.GameVideos.FirstOrDefault(v => v.Type == "trailer");
     }
 
     @if (trailer != null)
@@ -160,16 +160,25 @@
             </iframe>
         </div>
     }
-    @if (User.Identity.IsAuthenticated && !Model.IsExpected)
+    @if (!string.IsNullOrEmpty(Model.YouTubeEmbed))
+    {
+        <section class="live-stream">
+            <div class="stream-wrapper">
+                @Html.Raw(Model.YouTubeEmbed)
+            </div>
+        </section>
+    }
+
+    @if (User.Identity.IsAuthenticated && !Model.Game.IsExpected)
     {
         <div>
-            <a asp-action="Create" asp-controller="Review" asp-route-gameId="@Model.GameId" class="btn btn-success mb-5" style="border:none;">Написати рецензію</a>
+            <a asp-action="Create" asp-controller="Review" asp-route-gameId="@Model.Game.GameId" class="btn btn-success mb-5" style="border:none;">Написати рецензію</a>
         </div>
     }
     <h3>Рецензії</h3>
-    @if (Model.Reviews != null && Model.Reviews.Any())
+    @if (Model.Game.Reviews != null && Model.Game.Reviews.Any())
     {
-        @foreach (var review in Model.Reviews)
+        @foreach (var review in Model.Game.Reviews)
         {
             <div class="review" style="background: #e3f2fd; padding: 10px; margin-bottom: 10px;">
                 <p class="review-header">
