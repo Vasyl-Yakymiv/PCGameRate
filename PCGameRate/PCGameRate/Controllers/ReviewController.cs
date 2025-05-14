@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PCGameRate.Data;
+using PCGameRate.Interfaces;
 using PCGameRate.Models;
+using PCGameRate.Services;
 using PCGameRate.ViewModels.Rating;
 using PCGameRate.ViewModels.Review;
 using System.Security.Claims;
@@ -13,10 +15,14 @@ namespace PCGameRate.Controllers
     {
          private readonly ApplicationDbContext _context;
         private readonly UserManager<User> _userManager;
-        public ReviewController(ApplicationDbContext context, UserManager<User> userManager)
+        private readonly IGrammarCheckService _grammarCheckService;
+        private readonly ProfanityCheckService _profanityCheckService;
+        public ReviewController(ApplicationDbContext context, UserManager<User> userManager, IGrammarCheckService grammarCheckService, ProfanityCheckService profanityCheckService)
         {
             _context = context;
             _userManager = userManager;
+            _grammarCheckService = grammarCheckService;
+            _profanityCheckService = profanityCheckService;
         }
         [HttpGet]
         public IActionResult Create(int gameId)
@@ -34,6 +40,17 @@ namespace PCGameRate.Controllers
         {
             if (ModelState.IsValid)
             {
+                var grammarErrors = await _grammarCheckService.CheckGrammarAsync(model.Content);
+                if (grammarErrors.Any())
+                {
+                    TempData["ErrorMessage"] = "У вашій рецензії знайдено помилки:\n" + string.Join("\n", grammarErrors);
+                    return View(model);
+                }
+                if (_profanityCheckService.ContainsProfanity(model.Content))
+                {
+                    TempData["ErrorMessage"] = "Ваша рецензія містить нецензурні вирази. Будь ласка, відредагуйте її.";
+                    return View(model);
+                }
                 var userId = _userManager.GetUserId(User);
                 var today = DateTime.UtcNow.Date;
 

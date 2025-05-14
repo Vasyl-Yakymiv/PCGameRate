@@ -321,6 +321,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\profanity\\profanity_list.txt",
+      "PackagePath": "staticwebassets\\profanity\\profanity_list.txt"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.PCGameRate.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

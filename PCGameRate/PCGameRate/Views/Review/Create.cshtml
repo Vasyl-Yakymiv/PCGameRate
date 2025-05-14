@@ -7,9 +7,17 @@
 
 <form asp-action="Create" method="post">
     <div class="form-group">
-        <label for="Content">Ваша рецензія</label>
-        <textarea id="Content" name="Content" class="form-control" rows="5" required></textarea>
+        <label asp-for="Content">Ваша рецензія</label>
+        <textarea asp-for="Content" class="form-control" rows="5"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
     </div>
     <input type="hidden" name="GameId" value="@Model.GameId" />
     <button type="submit" class="btn btn-primary">Опублікувати</button>
 </form>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @Html.Raw(TempData["ErrorMessage"].ToString().Replace("\n", "<br />"))
+    </div>
+}

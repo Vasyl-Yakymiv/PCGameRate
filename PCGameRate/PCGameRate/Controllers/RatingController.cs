@@ -5,6 +5,7 @@ using PCGameRate.Data;
 using PCGameRate.Models;
 using PCGameRate.ViewModels.Rating;
 using System.Security.Claims;
+using System.Diagnostics;
 
 namespace PCGameRate.Controllers
 {
@@ -51,6 +52,7 @@ namespace PCGameRate.Controllers
         [HttpPost]
         public async Task<IActionResult> RateGame(int gameId, int ratingValue)
         {
+           
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (string.IsNullOrEmpty(userId))
             {

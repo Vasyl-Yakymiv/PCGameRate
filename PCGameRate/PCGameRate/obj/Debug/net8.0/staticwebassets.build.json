@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sVpaUGATRHJpxrIzxOniMSwESaqsj3mhXsnDcc4A1vI=",
+  "Hash": "PbuSyWmfyntw7MTk9TMg03PoBcp7f0f85ULoLZRkfas=",
   "Source": "PCGameRate",
   "BasePath": "_content/PCGameRate",
   "Mode": "Default",
@@ -1554,6 +1554,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\profanity\\profanity_list.txt",
+      "SourceId": "PCGameRate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\KynguaT\\PCGameRate\\PCGameRate\\PCGameRate\\PCGameRate\\wwwroot\\",
+      "BasePath": "_content/PCGameRate",
+      "RelativePath": "profanity/profanity_list.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\profanity\\profanity_list.txt"
     }
   ]
 }

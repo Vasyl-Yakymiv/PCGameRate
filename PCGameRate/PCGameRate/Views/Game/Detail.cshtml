@@ -19,7 +19,7 @@
                     <p>⭐ @Model.Game.RatingAverage?.ToString("0.0") (на основі @Model.Game.RatingCount оцінок)</p>
                 </div>
             }
-            @if (User.Identity.IsAuthenticated && !Model.Game.IsExpected)
+            @if (User.Identity.IsAuthenticated && !Model.Game.IsExpected && User.IsInRole("user"))
             {
                 <div>
                     <h3>
@@ -55,17 +55,20 @@
             }
             @if (User.Identity.IsAuthenticated)
             {
-            <div>
-                    <form id="gameListForm" asp-controller="GameList" asp-action="ToggleGameList" method="post">
-                        <input type="hidden" name="gameId" value="@Model.Game.GameId" />
+                @if (User.IsInRole("user"))
+                {
+                    <div>
+                        <form id="gameListForm" asp-controller="GameList" asp-action="ToggleGameList" method="post">
+                            <input type="hidden" name="gameId" value="@Model.Game.GameId" />
 
-                        <button type="submit" id="gameListButton" class="btn @(ViewBag.IsInGameList ? "btn-danger" : "btn-outline-primary")" style="border: none;">
-                            <span id="gameListIcon">
-                                @(ViewBag.IsInGameList ? "📌 Видалити зі списку" : "⭐ Додати в список")
-                            </span>
-                        </button>
-                    </form>
-            </div>
+                            <button type="submit" id="gameListButton" class="btn @(ViewBag.IsInGameList ? "btn-danger" : "btn-outline-primary")" style="border: none;">
+                                <span id="gameListIcon">
+                                    @(ViewBag.IsInGameList ? "📌 Видалити зі списку" : "⭐ Додати в список")
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+                }
             }
         </div>
     </div>
@@ -169,7 +172,7 @@
         </section>
     }
 
-    @if (User.Identity.IsAuthenticated && !Model.Game.IsExpected)
+    @if (User.Identity.IsAuthenticated && !Model.Game.IsExpected && User.IsInRole("user"))
     {
         <div>
             <a asp-action="Create" asp-controller="Review" asp-route-gameId="@Model.Game.GameId" class="btn btn-success mb-5" style="border:none;">Написати рецензію</a>

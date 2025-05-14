@@ -15,6 +15,8 @@ builder.Services.AddScoped<IGameRepository,GameRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddSingleton<CaptchaService>();
 builder.Services.AddHttpClient<YouTubeService>();
+builder.Services.AddScoped<ProfanityCheckService>();
+builder.Services.AddHttpClient<IGrammarCheckService, GrammarCheckService>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));

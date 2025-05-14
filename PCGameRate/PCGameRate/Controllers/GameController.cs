@@ -11,6 +11,7 @@ using PCGameRate.ViewModels.Game;
 using System;
 using System.Net;
 using System.Security.Claims;
+using System.Diagnostics;
 
 namespace PCGameRate.Controllers
 {
@@ -195,7 +196,6 @@ namespace PCGameRate.Controllers
                 Game = game,
                 YouTubeEmbed = embedHtml
             };
-
             return View(viewModel);
         }
 
@@ -225,8 +225,11 @@ namespace PCGameRate.Controllers
         [HttpGet]
         public async Task<IActionResult> SearchResults(string query)
         {
+            Stopwatch stopwatch = Stopwatch.StartNew();
             var results = await _gameRepo.SearchResult(query);
-
+            stopwatch.Stop();
+            var elapsedMs = stopwatch.ElapsedMilliseconds;
+            Console.WriteLine($"Час: {elapsedMs} мс");
             return View(results);
         }
 
@@ -329,9 +332,6 @@ namespace PCGameRate.Controllers
 
             return View(rankedGames);
         }
-
-
-
         [HttpGet]
         public async Task<IActionResult> GetRatingStats(int gameId)
         {
