@@ -1,0 +1,56 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<PCGameRate.Models.User>
+
+@{
+    ViewData["Title"] = "Управління користувачами";
+}
+
+<h2>Пошук користувача</h2>
+
+<form asp-action="Search" method="post">
+    <input type="text" name="fullName" placeholder="Введіть ім’я або прізвище" class="form-control" />
+    <button type="submit" class="btn btn-primary mt-2">Пошук</button>
+</form>
+
+@if (Model?.Any() == true)
+{
+    <h3>Результати:</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Поточна роль</th>
+                <th>Змінити роль</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                var roles = await Context.RequestServices.GetService<UserManager<User>>().GetRolesAsync(user);
+                <tr>
+                    <td>@user.FullName</td>
+                    <td>@user.Email</td>
+                    <td>@string.Join(", ", roles)</td>
+                    <td>
+                        <form asp-action="ChangeRole" method="post">
+                            <input type="hidden" name="userId" value="@user.Id" />
+                            <select name="newRole" class="form-select">
+                                <option value="user">User</option>
+                                <option value="banned">Banned</option>
+                            </select>
+                            <button type="submit" class="btn btn-sm btn-warning mt-1">Змінити</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success mt-3">
+        @TempData["SuccessMessage"]
+    </div>
+}

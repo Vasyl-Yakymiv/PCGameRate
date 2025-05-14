@@ -63,6 +63,12 @@
                             </form>
                             <div id="suggestions" class="suggestions-box"></div>
                         </li>
+                            @if (User.IsInRole("admin"))
+                            {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="UserManager" asp-action="Index">Користувачі</a>
+                            </li>
+                            }
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         @if (User.Identity.IsAuthenticated)
