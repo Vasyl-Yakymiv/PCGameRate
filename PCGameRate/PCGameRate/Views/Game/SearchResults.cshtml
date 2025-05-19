@@ -8,6 +8,24 @@
 
 <h2>Результати пошуку</h2>
 
+<div class="row mb-3">
+    <div class="col-12">
+        <div class="dropdown" style="margin-left: 140px">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="border: none">
+                Сортувати за
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="@Url.Action("SearchResults", "Game", new { query = ViewBag.Query, sortOrder = "rating_asc" })">Рейтинг гри (за зростанням)</a></li>
+                <li><a class="dropdown-item" href="@Url.Action("SearchResults", "Game", new { query = ViewBag.Query, sortOrder = "rating_desc" })">Рейтинг гри (за спаданням)</a></li>
+                <li><a class="dropdown-item" href="@Url.Action("SearchResults", "Game", new { query = ViewBag.Query, sortOrder = "releaseDate_asc" })">Дата релізу (за зростанням)</a></li>
+                <li><a class="dropdown-item" href="@Url.Action("SearchResults", "Game", new { query = ViewBag.Query, sortOrder = "releaseDate_desc" })">Дата релізу (за спаданням)</a></li>
+                <li><a class="dropdown-item" href="@Url.Action("SearchResults", "Game", new { query = ViewBag.Query, sortOrder = "votes_asc" })">Кількість голосів (за зростанням)</a></li>
+                <li><a class="dropdown-item" href="@Url.Action("SearchResults", "Game", new { query = ViewBag.Query, sortOrder = "votes_desc" })">Кількість голосів (за спаданням)</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 @if (Model.Any())
 {
      <div class="top-games">

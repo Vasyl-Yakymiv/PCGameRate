@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PCGameRate.Data;
@@ -36,6 +37,7 @@ namespace PCGameRate.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "user")]
         public async Task<IActionResult> Create(CreateReviewViewModel model)
         {
             if (ModelState.IsValid)
@@ -79,6 +81,7 @@ namespace PCGameRate.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "user")]
         public async Task<IActionResult> ReviewList()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -105,6 +108,7 @@ namespace PCGameRate.Controllers
         }
 
         [HttpPost]
+
         public IActionResult Delete(int id)
         {
             var review = _context.Reviews.Find(id);
@@ -120,6 +124,7 @@ namespace PCGameRate.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "user")]
         public async Task<IActionResult> VoteReview(int reviewId, bool isLike)
         {
             var review = await _context.Reviews

@@ -68,11 +68,11 @@ namespace PCGameRate.Controllers
                     }
                 }
               
-                TempData["Помилка"] = "Неправильні облікові дані. Спробуйте ще раз";
+                TempData["Error"] = "Неправильні облікові дані. Спробуйте ще раз";
                 return View(loginViewModel);
             }
             
-            TempData["Помилка"] = "Неправильні облікові дані. Спробуйте ще раз";
+            TempData["Error"] = "Неправильні облікові дані. Спробуйте ще раз";
             return View(loginViewModel);
         }
 

@@ -31,11 +31,13 @@ namespace PCGameRate.Repository
             return await _context.Games.Include(i => i.Developer).Include(x => x.Genre).ToListAsync();
         }
 
-       
 
         public async Task<Game> GetByIdAsync(int id)
         {
-            return await _context.Games.Include(i => i.Developer).Include(x => x.Genre).FirstOrDefaultAsync(i => i.GameId == id);
+            return await _context.Games
+                .Include(i => i.Developer)
+                .Include(x => x.Genre)
+                .FirstOrDefaultAsync(i => i.GameId == id);
         }
 
         public async Task<Game?> GetByIdAsyncNoTracking(int id)

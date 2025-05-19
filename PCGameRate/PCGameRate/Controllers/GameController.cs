@@ -12,6 +12,7 @@ using System;
 using System.Net;
 using System.Security.Claims;
 using System.Diagnostics;
+using Microsoft.Data.SqlClient;
 
 namespace PCGameRate.Controllers
 {
@@ -223,13 +224,36 @@ namespace PCGameRate.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> SearchResults(string query)
+        public async Task<IActionResult> SearchResults(string query, string sortOrder)
         {
-            Stopwatch stopwatch = Stopwatch.StartNew();
             var results = await _gameRepo.SearchResult(query);
-            stopwatch.Stop();
-            var elapsedMs = stopwatch.ElapsedMilliseconds;
-            Console.WriteLine($"Час: {elapsedMs} мс");
+
+            ViewBag.Query = query;
+
+            switch (sortOrder)
+            {
+                case "rating_asc":
+                    results = results.OrderBy(g => g.RatingAverage).ToList();
+                    break;
+                case "rating_desc":
+                    results = results.OrderByDescending(g => g.RatingAverage).ToList();
+                    break;
+                case "releaseDate_asc":
+                    results = results.OrderBy(g => g.ReleaseDate).ToList();
+                    break;
+                case "releaseDate_desc":
+                    results = results.OrderByDescending(g => g.ReleaseDate).ToList();
+                    break;
+                case "votes_asc":
+                    results = results.OrderBy(g => g.RatingCount).ToList();
+                    break;
+                case "votes_desc":
+                    results = results.OrderByDescending(g => g.RatingCount).ToList();
+                    break;
+                default:
+                    results = results.OrderByDescending(g => g.RatingAverage).ToList();
+                    break;
+            }
             return View(results);
         }
 

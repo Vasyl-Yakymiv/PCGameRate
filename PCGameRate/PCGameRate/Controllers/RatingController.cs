@@ -6,6 +6,7 @@ using PCGameRate.Models;
 using PCGameRate.ViewModels.Rating;
 using System.Security.Claims;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PCGameRate.Controllers
 {
@@ -19,7 +20,7 @@ namespace PCGameRate.Controllers
             _userManager = userManager;
         }
 
-        
+        [Authorize(Roles = "user")]
         public async Task<IActionResult> RateGame(int gameId)
         {
           
@@ -68,6 +69,7 @@ namespace PCGameRate.Controllers
 
         
         [HttpPost]
+        [Authorize(Roles = "user")]
         public async Task<IActionResult> RateGame(int gameId, int ratingValue)
         {
             var stopwatch = Stopwatch.StartNew();
@@ -112,6 +114,7 @@ namespace PCGameRate.Controllers
             return RedirectToAction("Detail", "Game", new { id = gameId });
         }
         [HttpGet]
+        [Authorize(Roles = "user")]
         public async Task<IActionResult> RatingList(string sortOrder)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -167,6 +170,7 @@ namespace PCGameRate.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "user")]
         public async Task<IActionResult> DeleteRating(int gameId)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);

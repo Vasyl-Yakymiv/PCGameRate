@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PCGameRate.Data;
 using PCGameRate.Models;
 
@@ -12,6 +13,7 @@ namespace PCGameRate.Controllers
                _context = context;
         }
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> AddScreenshot(int gameId, string screenshotUrl)
         {
             if (string.IsNullOrEmpty(screenshotUrl))
@@ -32,6 +34,7 @@ namespace PCGameRate.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteScreenshot(int photoId)
         {
             var screenshot = await _context.Screenshots.FindAsync(photoId);

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PCGameRate.Data;
 using PCGameRate.Models;
@@ -14,6 +15,7 @@ namespace PCGameRate.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> AddTrailer(int gameId, string url)
         {
             var game = await _context.Games.FindAsync(gameId);
@@ -33,6 +35,7 @@ namespace PCGameRate.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public IActionResult Delete(int id) 
         {
             var gameVideo = _context.GameVideos.Find(id);
