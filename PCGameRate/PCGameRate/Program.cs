@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using PCGameRate.Data;
 using PCGameRate.Interfaces;
 using PCGameRate.Models;
@@ -13,8 +14,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IGameRepository,GameRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
-builder.Services.AddSingleton<CaptchaService>();
-builder.Services.AddHttpClient<YouTubeService>();
+builder.Services.AddScoped<ICaptchaService, CaptchaService>();
+builder.Services.AddHttpClient<IYouTubeService,YouTubeService>();
+//builder.Services.AddSingleton<CaptchaService>();
+//builder.Services.AddHttpClient<YouTubeService>();
 builder.Services.AddScoped<ProfanityCheckService>();
 builder.Services.AddHttpClient<IGrammarCheckService, GrammarCheckService>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

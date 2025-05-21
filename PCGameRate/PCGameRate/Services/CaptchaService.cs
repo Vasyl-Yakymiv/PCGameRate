@@ -2,11 +2,12 @@
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
+using PCGameRate.Interfaces;
 
 
 namespace PCGameRate.Services
 {
-    public class CaptchaService
+    public class CaptchaService : ICaptchaService
     {
         private readonly string _secretKey;
         private readonly HttpClient _httpClient;
@@ -17,7 +18,7 @@ namespace PCGameRate.Services
             _httpClient = new HttpClient();
         }
 
-        public async Task<bool> IsCaptchaValid(string captchaResponse)
+        public virtual async Task<bool> IsCaptchaValid(string captchaResponse)
         {
             if (string.IsNullOrEmpty(captchaResponse))
                 return false;

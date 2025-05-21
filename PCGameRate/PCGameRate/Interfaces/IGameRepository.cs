@@ -13,6 +13,7 @@ namespace PCGameRate.Interfaces
         Task<int?> GetUserRating(int id, string userId);
         Task<List<Game?>> SearchResult(string query);
         Task<List<Game?>> GetExpectedGames();
+        Task<List<Game?>> GetPopularGames();
         Task<List<Game?>> GetTopSortedGames();
         bool Add(Game game);
         bool Update(Game game);

@@ -20,8 +20,8 @@ namespace PCGameRate.Controllers
     {
         IGameRepository _gameRepo;
         ApplicationDbContext _context;
-        private readonly YouTubeService _youTubeService;
-        public GameController(IGameRepository gameRepo, ApplicationDbContext context, YouTubeService youTubeService)
+        private readonly IYouTubeService _youTubeService;
+        public GameController(IGameRepository gameRepo, ApplicationDbContext context, IYouTubeService youTubeService)
         {
             _gameRepo = gameRepo;
             _context = context;
@@ -260,8 +260,9 @@ namespace PCGameRate.Controllers
         [HttpGet]
         public async Task<IActionResult> GetPopularGames()
         {
-            var popularGames = await _context.Games
-                .Where(g => (bool)g.IsPopular)
+
+            var popularGames = await _gameRepo.GetPopularGames();
+            var games = popularGames
                 .Select(g => new
                 {
                     g.GameId,
@@ -269,10 +270,8 @@ namespace PCGameRate.Controllers
                     g.Image,
                     RatingAverage = g.RatingAverage.HasValue ? g.RatingAverage.Value.ToString("0.0") : "0.0",
                     ReleaseYear = g.ReleaseDate
-                })
-                .ToListAsync();
-
-            return Json(popularGames);
+                }).ToList();
+            return Json(games);
         }
 
         [HttpGet]

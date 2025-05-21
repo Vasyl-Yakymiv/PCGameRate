@@ -108,7 +108,6 @@ namespace PCGameRate.Controllers
         }
 
         [HttpPost]
-
         public IActionResult Delete(int id)
         {
             var review = _context.Reviews.Find(id);
@@ -119,8 +118,15 @@ namespace PCGameRate.Controllers
 
             _context.Reviews.Remove(review);
             _context.SaveChanges();
-
-            return RedirectToAction("ReviewList","Review"); 
+            if (User.IsInRole("user"))
+            {
+                return RedirectToAction("ReviewList", "Review");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Game");
+            }
+           
         }
 
         [HttpPost]

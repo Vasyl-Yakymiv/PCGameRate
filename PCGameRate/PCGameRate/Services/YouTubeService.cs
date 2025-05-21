@@ -1,8 +1,9 @@
-﻿using System.Text.Json;
+﻿using PCGameRate.Interfaces;
+using System.Text.Json;
 
 namespace PCGameRate.Services
 {
-    public class YouTubeService
+    public class YouTubeService : IYouTubeService
     {
         private readonly HttpClient _httpClient;
         private readonly string _apiKey = "AIzaSyBqoSsCOgWCns4FZIG21Ty-3rzFECQRJQo";

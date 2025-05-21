@@ -56,6 +56,13 @@ namespace PCGameRate.Repository
                 .ToListAsync();
         }
 
+        public async Task<List<Game?>> GetPopularGames()
+        {
+            return await _context.Games
+               .Where(g => (bool)g.IsPopular)
+               .ToListAsync();
+        }
+
         public async Task<IEnumerable<Game>> GetTop100()
         {
             return await _context.Games

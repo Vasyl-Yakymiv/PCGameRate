@@ -21,9 +21,9 @@ namespace PCGameRate.Controllers
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly ApplicationDbContext _context;
         private readonly IAccountRepository _accountRepo;
-        private readonly CaptchaService _captchaService;
+        private readonly ICaptchaService _captchaService;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationDbContext context, IWebHostEnvironment webHostEnvironment, IAccountRepository accountRepo,CaptchaService captchaService)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationDbContext context, IWebHostEnvironment webHostEnvironment, IAccountRepository accountRepo,ICaptchaService captchaService)
         {
             _context = context;
             _signInManager = signInManager;
