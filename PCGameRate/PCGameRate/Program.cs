@@ -18,7 +18,7 @@ builder.Services.AddScoped<ICaptchaService, CaptchaService>();
 builder.Services.AddHttpClient<IYouTubeService,YouTubeService>();
 //builder.Services.AddSingleton<CaptchaService>();
 //builder.Services.AddHttpClient<YouTubeService>();
-builder.Services.AddScoped<ProfanityCheckService>();
+builder.Services.AddScoped<IProfanityCheckService,ProfanityCheckService>();
 builder.Services.AddHttpClient<IGrammarCheckService, GrammarCheckService>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {

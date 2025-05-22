@@ -17,8 +17,8 @@ namespace PCGameRate.Controllers
          private readonly ApplicationDbContext _context;
         private readonly UserManager<User> _userManager;
         private readonly IGrammarCheckService _grammarCheckService;
-        private readonly ProfanityCheckService _profanityCheckService;
-        public ReviewController(ApplicationDbContext context, UserManager<User> userManager, IGrammarCheckService grammarCheckService, ProfanityCheckService profanityCheckService)
+        private readonly IProfanityCheckService _profanityCheckService;
+        public ReviewController(ApplicationDbContext context, UserManager<User> userManager, IGrammarCheckService grammarCheckService, IProfanityCheckService profanityCheckService)
         {
             _context = context;
             _userManager = userManager;

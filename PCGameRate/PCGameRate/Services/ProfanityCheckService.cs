@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PCGameRate.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PCGameRate.Services
 {
-    public class ProfanityCheckService
+    public class ProfanityCheckService : IProfanityCheckService
     {
         private readonly HashSet<string> _badWords;
 

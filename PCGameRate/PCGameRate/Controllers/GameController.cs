@@ -109,6 +109,7 @@ namespace PCGameRate.Controllers
                 IsExpected = (bool)game.IsExpected
             };
             return View(gameVM);
+
         }
         [HttpPost]
         [Authorize(Roles = "admin")]
